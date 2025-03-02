@@ -1,42 +1,6 @@
-
-/* Enhanced Table Styles */
-.professional-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 2rem 0;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-}
-
-.professional-table th {
-    background: var(--primary);
-    color: white;
-    font-weight: 600;
-    padding: 1.2rem;
-    text-align: left;
-}
-
-.professional-table td {
-    padding: 1.2rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    vertical-align: top;
-}
-
-.professional-table tr:last-child td {
-    border-bottom: none;
-}
-
-.professional-table tr:hover {
-    background: var(--light-bg);
-}
-
-
-
 /* Modern Professional Styles */
 :root {
-    --primary: #2c3e50;
+    --primary: #2c3e50; /* Default fallback */
     --secondary: #3498db;
     --accent: #FF6B6B;
     --text: #444;
@@ -51,23 +15,24 @@
 }
 
 body {
-    font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.8;
-    color: var(--text);
-    background: #ffffff;
+    color: var(--text-color); /* From theme.css */
+    background: var(--background-color); /* From theme.css */
     overflow-x: hidden;
+    font-size: 1rem; /* Base font size: 16px */
 }
 
-/* Improved Typography */
+/* Typography */
 h1, h2, h3 {
-    font-family: 'Merriweather', serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
 }
 
 h1 {
     font-size: 2.8rem;
     letter-spacing: -0.5px;
-    color: var(--primary);
+    color: var(--primary-color); /* From theme.css */
     position: relative;
     padding-bottom: 1rem;
     margin-bottom: 3rem;
@@ -82,13 +47,13 @@ h1::after {
     transform: translateX(-50%);
     width: 100px;
     height: 4px;
-    background: var(--secondary);
+    background: var(--secondary-color); /* From theme.css */
     border-radius: 2px;
 }
 
 h2 {
     font-size: 1.8rem;
-    color: var(--primary);
+    color: var(--primary-color);
     margin-bottom: 2rem;
     position: relative;
     padding-left: 1.5rem;
@@ -102,11 +67,17 @@ h2::before {
     transform: translateY(-50%);
     height: 24px;
     width: 4px;
-    background: var(--secondary);
+    background: var(--secondary-color);
     border-radius: 2px;
 }
 
-/* Modern Navigation */
+h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Navigation */
 .header-nav {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -125,7 +96,7 @@ h2::before {
 }
 
 .nav-links a {
-    color: var(--primary);
+    color: var(--primary-color);
     font-weight: 600;
     position: relative;
     padding: 0.5rem 1rem;
@@ -139,7 +110,7 @@ h2::before {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--secondary);
+    background: var(--secondary-color);
     transition: var(--transition);
 }
 
@@ -147,14 +118,14 @@ h2::before {
     width: 100%;
 }
 
-/* Main Content Container */
+/* Content Container */
 .content-wrapper {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
 }
 
-/* Enhanced Section Design with Hover Effects */
+/* Sections */
 .section {
     margin: 4rem 0;
     padding: 2.5rem;
@@ -162,7 +133,7 @@ h2::before {
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color); /* From theme.css */
 }
 
 .section:hover {
@@ -170,46 +141,144 @@ h2::before {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* Contact Form Styles */
-.contact-wrapper {
-    max-width: 800px;
-    margin: 4rem auto;
-    padding: 2rem;
-}
-
-.contact-form {
+/* Tables */
+.professional-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
     background: white;
-    padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    transition: var(--transition);
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    font-size: 0.95rem;
 }
 
-.contact-form:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+.professional-table th {
+    background: var(--primary-color);
+    color: var(--button-text); /* White from theme.css */
+    font-weight: 700;
+    padding: 1rem; /* Adjusted for compactness */
+    text-align: left;
+    border-bottom: 2px solid #ddd;
 }
 
-/* Conference List Styles */
-.conference-list {
-    list-style: none;
-    padding: 0;
+.professional-table td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    vertical-align: top;
+    line-height: 1.6;
 }
 
-.conference-item {
+.professional-table tr:nth-child(even) {
+    background: #f9f9f9; /* Alternating rows */
+}
+
+.professional-table tr:hover {
+    background: var(--light-bg);
+}
+
+.professional-table th:first-child,
+.professional-table td:first-child {
+    width: 120px; /* Fixed width for compactness */
+}
+
+.professional-table ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.professional-table li {
+    margin-bottom: 0.5rem;
+}
+
+/* Buttons */
+.view-all-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary-color);
+    color: var(--button-text);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.view-all-button:hover {
+    background: var(--secondary-color);
+}
+
+/* DOI Links */
+.doi-link {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: var(--secondary-color);
+    color: var(--button-text);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.doi-link:hover {
+    background: var(--primary-color);
+}
+
+/* Status Styles */
+.status, .status-not-funded {
+    color: var(--accent);
+    font-style: italic;
+}
+
+/* Teaching Items */
+.teaching-item {
     margin-bottom: 2rem;
     padding: 1.5rem;
     background: var(--light-bg);
     border-radius: 8px;
-    transition: var(--transition);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.conference-item:hover {
-    transform: translateX(10px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+.teaching-item h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
 }
 
-/* Rest of your CSS remains the same... */
+.institution {
+    font-style: italic;
+    color: #666;
+}
+
+.date {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.description {
+    margin-top: 1rem;
+}
+
+/* Lists */
+.publication-list, .preparation-list, .extension-list {
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.publication-item, .preparation-item, .extension-item {
+    margin-bottom: 1.5rem;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 2rem 0;
+    background: var(--light-bg);
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -217,18 +286,25 @@ h2::before {
         font-size: 2rem;
         padding-bottom: 0.5rem;
     }
-    
+    h2 {
+        font-size: 1.6rem;
+    }
+    h3 {
+        font-size: 1.2rem;
+    }
     .section {
         padding: 1.5rem;
         margin: 2.5rem 0;
     }
-    
     .nav-links {
         gap: 1rem;
         padding: 0 1rem;
     }
-    
     .content-wrapper {
         padding: 1rem;
+    }
+    .professional-table th,
+    .professional-table td {
+        padding: 0.8rem;
     }
 }
