@@ -1,0 +1,144 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Root Variables for Easy Customization */
+:root {
+    --primary-color: #b16a5d; /* Softer Maroon */
+    --secondary-color: #1e90ff; /* Bright Blue */
+    --background-color: #f8f9fa;
+    --form-bg: #ffffff;
+    --text-color: #333;
+    --input-bg: #f1f1f1;
+    --border-color: #ddd;
+    --button-bg: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    --button-hover-bg: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    --button-text: #fff;
+}
+
+/* General Styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #b16a5d, #ee7b6a);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    color: var(--text-color);
+}
+
+/* Contact Form Wrapper */
+.contact-wrapper {
+    background: var(--form-bg);
+    padding: 30px;
+    width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+    overflow: hidden;
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+/* Form Heading */
+.contact-form h1 {
+    font-family: 'Merriweather', serif;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+/* Form Fields */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    background: var(--input-bg);
+    transition: all 0.3s ease-in-out;
+    font-size: 16px;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+input:focus, textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    background: #fff;
+}
+
+/* Submit Button */
+.btn-submit {
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
+    width: 100%; /* Make button full width */
+}
+
+.btn-submit:hover {
+    background: var(--button-hover-bg);
+    transform: scale(1.05);
+}
+
+/* Social Profiles */
+.social-profiles {
+    margin-top: 20px;
+}
+
+.social-profiles h3 {
+    color: var(--secondary-color);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.social-profiles a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-profiles a:hover {
+    color: var(--secondary-color);
+}
+
+/* LinkedIn Icon */
+.linkedin-icon {
+    width: 20px; /* Reduced size for the logo */
+    height: 20px;
+    margin-right: 8px;
+}
+
+/* Animations */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

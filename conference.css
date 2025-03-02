@@ -1,0 +1,327 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Root Variables for Easy Customization */
+:root {
+    --primary: #2c3e50; /* Dark Blue */
+    --secondary: #3498db; /* Bright Blue */
+    --accent: #FF6B6B; /* Red Accent */
+    --text: #444; /* Dark Gray Text */
+    --light-bg: #f8f9fa; /* Light Gray Background */
+    --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+    line-height: 1.8;
+    color: var(--text);
+    background: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Modern Navigation */
+.header-nav {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    text-align: center;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Main Content Container */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Enhanced Section Design with Hover Effects */
+.section {
+    margin: 4rem 0;
+    padding: 2.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Conference List Styles */
+.conference-list {
+    list-style: none;
+    padding: 0;
+}
+
+.conference-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--light-bg);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.conference-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.citation {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+
+.conference_details {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.conference-name {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.conference-location {
+    font-style: italic;
+    color: #666;
+}
+
+.presentation-type {
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+.materials-link {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: var(--secondary);
+    color: white;
+    border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.materials-link:hover {
+    background: #0056b3; /* Darker blue */
+}
+
+.award {
+    color: var(--accent);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    margin-left: 0.5rem;
+}
+
+/* Contact Form Styles */
+.contact-wrapper {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem;
+}
+
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+}
+
+.contact-form:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+.contact-form h1 {
+    font-family: 'Merriweather', serif;
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    background: var(--light-bg);
+    transition: var(--transition);
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--primary);
+    outline: none;
+    background: #fff;
+}
+
+.btn-submit {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.btn-submit:hover {
+    background: var(--primary);
+    transform: scale(1.05);
+}
+
+/* Social Profile Section */
+.social-profiles {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.social-profiles a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.linkedin-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Improved Typography */
+h1, h2, h3 {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.8rem;
+    letter-spacing: -0.5px;
+    color: var(--primary);
+    position: relative;
+    padding-bottom: 1rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--secondary);
+    border-radius: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-nav {
+        padding: 0.5rem 0;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .content-wrapper, .section, .contact-wrapper {
+        padding: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    h1 {
+        font-size: 2rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .conference-item, .contact-form {
+        padding: 1rem;
+    }
+
+    .conference_details {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+}
