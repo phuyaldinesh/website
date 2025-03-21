@@ -1,0 +1,169 @@
+/* Responsive Design Styles */
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Navigation */
+    .header-nav {
+        min-height: 120px; /* Ensure enough height for wrapped nav */
+        height: auto;
+        padding: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        padding: 0;
+        width: 100%;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+        background: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        margin: 0;
+        text-align: center;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    /* Content */
+    .content-wrapper {
+        margin: 140px auto 100px auto; /* Increased margin for wrapped nav */
+        padding: 10px;
+    }
+
+    .section {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .section h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    /* Tables */
+    .professional-table th,
+    .professional-table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    /* Teaching Items */
+    .teaching-item {
+        padding: 10px;
+    }
+
+    .teaching-item h3 {
+        font-size: 16px;
+    }
+
+    /* Footer */
+    .site-footer {
+        padding: 5px 0;
+        font-size: 12px;
+    }
+}
+
+/* Tablet Devices (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Navigation */
+    .header-nav {
+        padding: 10px 0;
+        min-height: 80px; /* Adjusted for potential wrapping */
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        padding: 10px 18px;
+        font-size: 18px;
+    }
+
+    /* Content */
+    .content-wrapper {
+        max-width: 750px;
+        margin: 100px auto 120px auto; /* Adjusted for potential wrap */
+        padding: 15px;
+    }
+
+    .section {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .section h2 {
+        font-size: 22px;
+    }
+
+    /* Tables */
+    .professional-table th,
+    .professional-table td {
+        padding: 10px;
+    }
+}
+
+/* Desktop and Large Screens (min-width: 1025px) */
+@media (min-width: 1025px) {
+    .content-wrapper {
+        max-width: 1100px;
+        padding: 30px;
+    }
+
+    .section {
+        padding: 30px;
+        margin-bottom: 30px;
+    }
+
+    .section h2 {
+        font-size: 24px;
+    }
+
+    /* Navigation */
+    .nav-links {
+        gap: 25px;
+    }
+
+    .nav-links a {
+        padding: 12px 20px;
+        font-size: 22px;
+    }
+
+    /* Tables */
+    .professional-table th,
+    .professional-table td {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    /* Teaching Items */
+    .teaching-item {
+        padding: 20px;
+    }
+
+    .teaching-item h3 {
+        font-size: 18px;
+    }
+
+    /* Footer */
+    .site-footer {
+        padding: 20px 0;
+        font-size: 14px;
+    }
+}
+
+/* Very Large Screens (min-width: 1440px) */
+@media (min-width: 1440px) {
+    .content-wrapper {
+        max-width: 1300px;
+    }
+
+    .section {
+        padding: 35px;
+    }
+}

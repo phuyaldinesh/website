@@ -15,7 +15,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Primary font with fallback */
     line-height: 1.8;
     color: var(--text-color); /* From theme.css */
     background: var(--background-color); /* From theme.css */
@@ -25,7 +25,7 @@ body {
 
 /* Typography */
 h1, h2, h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif; /* Heading font with fallback */
     font-weight: 700;
 }
 
@@ -83,8 +83,9 @@ h3 {
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     padding: 1rem 0;
-    position: sticky;
+    position: fixed;
     top: 0;
+    width: 100%;
     z-index: 1000;
 }
 
@@ -103,6 +104,10 @@ h3 {
     text-decoration: none;
 }
 
+.nav-links a.home-btn {
+    color: #27ae60; /* Vibrant green for Home text */
+}
+
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -116,6 +121,59 @@ h3 {
 
 .nav-links a:hover::after {
     width: 100%;
+}
+
+/* Desktop: Show only text, hide icons */
+@media (min-width: 601px) {
+    .nav-links a i {
+        display: none;
+    }
+}
+
+/* Mobile: Show only icons in a single row */
+@media (max-width: 600px) {
+    .header-nav {
+        padding: 0.3rem 0;
+        background: rgba(0, 0, 0, 0.7);
+        width: 100% !important;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+    }
+    .nav-links {
+        display: flex;
+        flex-wrap: nowrap !important;
+        justify-content: center;
+        gap: 0.05rem;
+        padding: 0;
+        margin: 0;
+        width: 100% !important;
+    }
+    .header-nav .nav-links a {
+        font-size: 0;
+        padding: 0;
+        width: 16px;
+        flex: none;
+        text-align: center;
+        color: #ffffff;
+        position: static;
+    }
+    .header-nav .nav-links a i {
+        font-size: 0.8rem;
+        display: block;
+        margin: auto;
+    }
+    .header-nav .nav-links a span {
+        display: none;
+    }
+    /* Colorful icons */
+    .header-nav .nav-links a:nth-child(1) i { color: #27ae60; } /* Home */
+    .header-nav .nav-links a:nth-child(2) i { color: #3498db; } /* Education */
+    .header-nav .nav-links a:nth-child(3) i { color: #2ecc71; } /* Publications */
+    .header-nav .nav-links a:nth-child(4) i { color: #f1c40f; } /* Conferences */
+    .header-nav .nav-links a:nth-child(5) i { color: #e67e22; } /* News */
+    .header-nav .nav-links a:nth-child(6) i { color: #9b59b6; } /* My Videos */
+    .header-nav .nav-links a:nth-child(7) i { color: #1abc9c; } /* Contact */
 }
 
 /* Content Container */
@@ -157,7 +215,7 @@ h3 {
     background: var(--primary-color);
     color: var(--button-text); /* White from theme.css */
     font-weight: 700;
-    padding: 1rem; /* Adjusted for compactness */
+    padding: 1rem;
     text-align: left;
     border-bottom: 2px solid #ddd;
 }
@@ -170,7 +228,7 @@ h3 {
 }
 
 .professional-table tr:nth-child(even) {
-    background: #f9f9f9; /* Alternating rows */
+    background: #f9f9f9;
 }
 
 .professional-table tr:hover {
@@ -179,7 +237,7 @@ h3 {
 
 .professional-table th:first-child,
 .professional-table td:first-child {
-    width: 120px; /* Fixed width for compactness */
+    width: 120px;
 }
 
 .professional-table ul {
@@ -280,31 +338,59 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Responsive Design */
+/* Responsive Design for Mobile Devices */
 @media (max-width: 768px) {
+    body {
+        font-size: 0.9rem; /* Smaller body text for mobile */
+        line-height: 1.6; /* Improved readability */
+    }
+
     h1 {
-        font-size: 2rem;
+        font-size: 2rem; /* Adjusted heading size */
         padding-bottom: 0.5rem;
     }
+
     h2 {
         font-size: 1.6rem;
     }
+
     h3 {
         font-size: 1.2rem;
     }
+
     .section {
         padding: 1.5rem;
         margin: 2.5rem 0;
     }
+
     .nav-links {
         gap: 1rem;
         padding: 0 1rem;
     }
+
     .content-wrapper {
         padding: 1rem;
     }
+
     .professional-table th,
     .professional-table td {
         padding: 0.8rem;
+        font-size: 0.85rem; /* Smaller table text */
+    }
+
+    .teaching-item {
+        padding: 1rem;
+    }
+
+    .teaching-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .description {
+        font-size: 0.9rem;
+    }
+
+    .site-footer {
+        font-size: 0.8rem;
     }
 }

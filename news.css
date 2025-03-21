@@ -1,0 +1,314 @@
+/* Import Google Fonts with additional weights for better mobile optimization */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #3498db;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+    line-height: 1.8;
+    color: var(--text-color);
+    background: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    font-size: 16px; /* Base font size */
+}
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.header-nav {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1); /* More transparent */
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: fixed; /* Changed to fixed for better mobile experience */
+    top: 0;
+    z-index: 1000;
+    text-align: center;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+.nav-links a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Desktop: Show text, hide icons */
+@media (min-width: 769px) {
+    .nav-links a i {
+        display: none;
+    }
+}
+
+/* Mobile: Show icons, adjust layout */
+@media (max-width: 768px) {
+    .header-nav {
+        background: rgba(0, 0, 0, 0.3); /* Darker transparent for mobile */
+        padding: 0.5rem 0;
+    }
+    .nav-links {
+        gap: 1rem;
+        justify-content: space-around;
+        padding: 0;
+    }
+    .nav-links a {
+        font-size: 0; /* Hide text */
+        padding: 0.5rem;
+        color: #fff;
+    }
+    .nav-links a i {
+        font-size: 1.2rem; /* Larger icons for mobile */
+        display: inline-block;
+    }
+    /* Icon colors for visual appeal */
+    .nav-links a:nth-child(1) i { color: #27ae60; } /* Home */
+    .nav-links a:nth-child(2) i { color: #e74c3c; } /* Conferences */
+    .nav-links a:nth-child(3) i { color: #f1c40f; } /* Publications */
+    .nav-links a:nth-child(4) i { color: #3498db; } /* Contact */
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.section {
+    margin: 4rem 0;
+    padding: 2.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.news-grid {
+    display: grid;
+    gap: 30px;
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.news-card {
+    background: var(--light-bg);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: var(--transition);
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.passport-photo {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+}
+
+.passport-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.news-title {
+    font-family: 'Merriweather', serif;
+    font-size: 1.2em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 0.8s ease-out forwards;
+}
+
+.news-card:nth-child(1) .news-title { animation-delay: 0.1s; }
+.news-card:nth-child(2) .news-title { animation-delay: 0.3s; }
+.news-card:nth-child(3) .news-title { animation-delay: 0.5s; }
+.news-card:nth-child(4) .news-title { animation-delay: 0.7s; }
+.news-card:nth-child(5) .news-title { animation-delay: 0.9s; }
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.news-description {
+    color: var(--text-color);
+    margin: 15px 0;
+    font-size: 0.95em;
+}
+
+.news-link {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: var(--transition);
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color), 0 0 15px var(--accent-color); }
+    50% { box-shadow: 0 0 2px var(--accent-color), 0 0 5px var(--accent-color), 0 0 10px var(--accent-color); }
+}
+
+.news-link:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+    animation: none;
+}
+
+h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.8rem;
+    letter-spacing: -0.5px;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 1rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+.site-footer {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1); /* Transparent footer */
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
+    color: #fff; /* White text for contrast */
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Slightly smaller base font for mobile */
+    }
+    .header-nav {
+        padding: 0.5rem 0;
+    }
+    .content-wrapper {
+        padding: 1rem;
+    }
+    .section {
+        padding: 1.5rem;
+        margin: 2rem 0;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .passport-photo {
+        width: 200px;
+        height: 200px;
+    }
+    .news-card {
+        padding: 1rem;
+    }
+    .news-title {
+        font-size: 1em;
+    }
+    .news-description {
+        font-size: 0.85em;
+    }
+    .news-link {
+        padding: 6px 15px;
+        font-size: 0.8em;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+    .passport-photo {
+        width: 150px;
+        height: 150px;
+    }
+}

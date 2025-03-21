@@ -5,8 +5,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dinesh Phuyal - Conference Presentations</title>
     <link rel="stylesheet" href="conference.css">
+    <style>
+        /* Basic styling for video background, consistent with news.html */
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        /* Ensure content stays above video */
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Navigation styling to match news.html */
+        .header-nav {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #2c3e50; /* Matches --primary-color from news.html */
+            font-weight: 600;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3498db; /* Matches --accent-color from news.html */
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Heading styling to match news.html */
+        h1 {
+            font-family: 'Merriweather', serif; /* Assuming Merriweather is available */
+            font-size: 2.8rem;
+            letter-spacing: -0.5px;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+
+        /* Section styling to match news.html */
+        .section {
+            margin: 4rem 0;
+            padding: 2.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling for the medal icons */
+        .award img {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header-nav {
+                padding: 0.5rem 0;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+
+            .content-wrapper, .section {
+                padding: 1.5rem;
+                margin: 2rem 0;
+            }
+
+            h1 {
+                font-size: 2rem;
+                padding-bottom: 0.5rem;
+            }
+
+            .award img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Fixed Video Background -->
+    <video id="background-video" autoplay loop muted playsinline>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
     <nav class="header-nav">
         <div class="nav-links">
             <a href="index.html">Back to CV</a>
@@ -53,7 +199,7 @@
                     <div class="conference-details">
                         <span class="conference-name">ASA, CSSA, SSSA International Annual Meeting</span>
                         <span class="conference-location">St. Louis, MO</span>
-                        <span class="presentation-type award">Oral Presentation (1st Prize)</span>
+                        <span class="presentation-type award">Oral Presentation (1st Prize) <img src="Icons/1.jpeg" alt="1st Prize Medal"></span>
                         <a href="https://scisoc.confex.com/scisoc/2023am/meetingapp.cgi/Paper/149585" class="materials-link">[Slides]</a>
                     </div>
                 </li>
@@ -90,7 +236,7 @@
                     <div class="conference-details">
                         <span class="conference-name">ASA, CSSA, SSSA International Annual Meeting</span>
                         <span class="conference-location">St Louis, MO</span>
-                        <span class="presentation-type award">Oral Presentation (3rd Prize)</span>
+                        <span class="presentation-type award">Oral Presentation (3rd Prize) <img src="Icons/3.jpeg" alt="3rd Prize Medal"></span>
                         <a href="https://scisoc.confex.com/scisoc/2023am/meetingapp.cgi/Paper/151325" class="materials-link">[Slides]</a>
                     </div>
                 </li>
@@ -114,7 +260,7 @@
                     <div class="conference-details">
                         <span class="conference-name">ASA, CSSA, SSSA International Annual Meeting</span>
                         <span class="conference-location">Baltimore, MD</span>
-                        <span class="presentation-type award">Poster Presentation (2nd Prize)</span>
+                        <span class="presentation-type award">Poster Presentation (2nd Prize) <img src="Icons/2.jpeg" alt="2nd Prize Medal"></span>
                         <a href="https://scisoc.confex.com/scisoc/2022am/meetingapp.cgi/Paper/143503" class="materials-link">[Poster]</a>
                     </div>
                 </li>
@@ -150,7 +296,7 @@
                     <div class="conference-details">
                         <span class="conference-name">62nd Meeting of Weed Science Society of America</span>
                         <span class="conference-location">Virtual Meeting</span>
-                        <span class="presentation-type award">Poster Presentation (1st Prize)</span>
+                        <span class="presentation-type award">Poster Presentation (1st Prize) <img src="Icons/1.jpeg" alt="1st Prize Medal"></span>
                         <a href="https://wssa.net/wp-content/uploads/2022-WSSA-CWSS-Proceedings-Final-April-4.pdf" class="materials-link">[Poster]</a>
                     </div>
                 </li>
@@ -212,7 +358,7 @@
                     <div class="conference-details">
                         <span class="conference-name">ASA, CSSA, SSSA International Annual Meetings</span>
                         <span class="conference-location">Virtual</span>
-                        <span class="presentation-type award">Poster Presentation (2nd Prize)</span>
+                        <span class="presentation-type award">Poster Presentation (2nd Prize) <img src="Icons/2.jpeg" alt="2nd Prize Medal"></span>
                         <a href="https://scisoc.confex.com/scisoc/2020am/prelim.cgi/Paper/125594" class="materials-link">[Poster]</a>
                     </div>
                 </li>
@@ -303,6 +449,34 @@
                 </li>
             </ol>
         </section>
+
+        <h1>Invited Talk</h1>
+        
+        <section class="section">
+            <ol class="conference-list">
+                <li class="conference-item">
+                    <div class="citation">
+                        Phuyal, D*. and Rajan, N. (2022). Update on Sorghum BNI Research at Texas A&M. The 4th Biennial Meeting organized by Japan International Research Center for Agricultural Sciences, Tsukuba, JAPAN, 17 November to 19 November.
+                    </div>
+                    <div class="conference-details">
+                        <span class="conference-name">The 4th Biennial Meeting</span>
+                        <span class="conference-location">Tsukuba, JAPAN</span>
+                        <span class="presentation-type">Oral Presentation</span>
+                        <a href="Invited talk.pdf" class="materials-link">[Slides]</a>
+                    </div>
+                </li>
+            </ol>
+        </section>
     </main>
+
+    <!-- Footer from footer.html -->
+    <footer class="site-footer">
+        <div class="content-wrapper">
+            <p>Updated 2024 © Dinesh Phuyal</p>
+        </div>
+    </footer>
+
+    <!-- Link to centralized videos.js -->
+    <script src="videos.js"></script>
 </body>
 </html>

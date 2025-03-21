@@ -8,7 +8,22 @@
     <link rel="stylesheet" href="contact.css">
 </head>
 <body>
+    <!-- Fixed Video Background -->
+    <video id="background-video" autoplay loop muted playsinline>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
     <div class="contact-wrapper">
+        <header class="header">
+            <a href="https://phuyaldinesh.github.io/website/" target="_blank" rel="noopener noreferrer">
+                <img src="Icons/Website.gif" alt="Website Logo" class="website-logo">
+            </a>
+            <a href="https://phuyaldinesh.github.io/website/" target="_blank" rel="noopener noreferrer" class="website-link">
+                Visit My Website
+            </a>
+        </header>
+
         <div class="contact-form">
             <h1>Contact Me</h1>
             <form action="https://formspree.io/f/xyzkqqdy" method="POST">
@@ -31,14 +46,24 @@
                 <button type="submit" class="btn-submit">Send Message</button>
             </form>
             
-            <!-- Social Profiles with LinkedIn Image -->
+            <!-- Social Profiles -->
             <div class="social-profiles">
                 <h3>Connect with Me</h3>
-                <a href="https://www.linkedin.com/in/dinesh-phuyal-74a6ba102" target="_blank" rel="noopener noreferrer">
-                    <img src="Icons/Linkedin.png" alt="LinkedIn" class="linkedin-icon"> LinkedIn Profile
-                </a>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/dinesh-phuyal-74a6ba102" target="_blank" rel="noopener noreferrer">
+                        <img src="Icons/Linkedin.gif" alt="LinkedIn" class="social-icon">
+                        LinkedIn
+                    </a>
+                    <a href="https://x.com/_DineshPhuyal" target="_blank" rel="noopener noreferrer">
+                        <img src="Icons/X.gif" alt="X (Twitter)" class="social-icon">
+                        X (Twitter)
+                    </a>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Link to centralized videos.js -->
+    <script src="videos.js"></script>
 </body>
 </html>

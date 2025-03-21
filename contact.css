@@ -1,10 +1,17 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap');
 
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 /* Root Variables for Easy Customization */
 :root {
-    --primary-color: #b16a5d; /* Softer Maroon */
-    --secondary-color: #1e90ff; /* Bright Blue */
+    --primary-color: #b16a5d;
+    --secondary-color: #1e90ff;
     --background-color: #f8f9fa;
     --form-bg: #ffffff;
     --text-color: #333;
@@ -24,22 +31,73 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    margin: 0;
+    min-height: 100vh;
+    padding: 20px;
     color: var(--text-color);
+    position: relative;
+}
+
+/* Background Video Styling */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.5;
 }
 
 /* Contact Form Wrapper */
 .contact-wrapper {
     background: var(--form-bg);
     padding: 30px;
-    width: 400px;
+    width: 100%;
+    max-width: 500px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     text-align: center;
     animation: fadeIn 0.8s ease-in-out;
-    overflow: hidden;
-    margin: 0 auto; /* Center the form horizontally */
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header with Website Logo and Link */
+.header {
+    margin-bottom: 20px;
+}
+
+.website-logo {
+    max-width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+    transition: transform 0.3s ease;
+    /* Make it circular and remove rectangular border */
+    border-radius: 50%;
+    object-fit: cover; /* Ensures the image fits within the circle */
+    border: none; /* Removes any default border */
+    background: transparent; /* Ensures no background if transparent */
+}
+
+.website-logo:hover {
+    transform: scale(1.05);
+}
+
+.website-link {
+    display: block;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.website-link:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
 }
 
 /* Form Heading */
@@ -71,7 +129,6 @@ input, textarea {
     background: var(--input-bg);
     transition: all 0.3s ease-in-out;
     font-size: 16px;
-    box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
 input:focus, textarea:focus {
@@ -90,44 +147,53 @@ input:focus, textarea:focus {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
-    width: 100%; /* Make button full width */
+    transition: transform 0.2s ease-in helmet-out, background 0.3s ease-in-out;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .btn-submit:hover {
     background: var(--button-hover-bg);
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 /* Social Profiles */
 .social-profiles {
-    margin-top: 20px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
 }
 
 .social-profiles h3 {
     color: var(--secondary-color);
     font-size: 18px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-.social-profiles a {
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
     text-decoration: none;
     color: var(--primary-color);
     font-weight: bold;
     display: flex;
     align-items: center;
-    justify-content: center;
     transition: color 0.3s ease-in-out;
+    padding: 8px;
 }
 
-.social-profiles a:hover {
+.social-links a:hover {
     color: var(--secondary-color);
 }
 
-/* LinkedIn Icon */
-.linkedin-icon {
-    width: 20px; /* Reduced size for the logo */
-    height: 20px;
+.social-icon {
+    width: 32px;
+    height: 32px;
     margin-right: 8px;
 }
 
@@ -141,4 +207,66 @@ input:focus, textarea:focus {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .website-logo {
+        max-width: 100px;
+    }
+
+    .website-link {
+        font-size: 14px;
+    }
+
+    .contact-form h1 {
+        font-size: 22px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+
+    .input, textarea {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .btn-submit {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .social-profiles h3 {
+        font-size: 16px;
+    }
+
+    .social-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .social-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .website-logo {
+        max-width: 80px;
+    }
+
+    .website-link {
+        font-size: 12px;
+    }
+
+    .contact-form h1 {
+        font-size: 20px;
+    }
 }
