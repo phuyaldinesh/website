@@ -6,35 +6,32 @@
   <title>Academic CV</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="theme.css">
-  <!-- Import Montserrat Font from Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-  <!-- Font Awesome CDN for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    /* Inline styles for specific overrides */
     .header-nav {
-      background: rgba(135, 206, 235, 0.3); /* Light blue with transparency */
+      background: rgba(135, 206, 235, 0.3);
       z-index: 10;
       width: 100%;
       padding: 0.5rem 0;
-      position: fixed; /* Fixed position to stay visible on scroll */
+      position: fixed;
       top: 0;
-      transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+      transition: background 0.3s ease, box-shadow 0.3s ease;
     }
     .header-nav:hover {
-      background: rgba(135, 206, 235, 0.7); /* Slightly more opaque light blue on hover */
-      box-shadow: 0 0 15px rgba(135, 206, 235, 0.8); /* Glow effect */
+      background: rgba(135, 206, 235, 0.7);
+      box-shadow: 0 0 15px rgba(135, 206, 235, 0.8);
     }
     .nav-links a {
-      color: #00008B; /* Dark Blue for all links except Home */
-      transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover */
+      color: #00008B;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
     .nav-links a.home-btn {
-      color: #800000; /* Deep Maroon for Home link */
+      color: #800000;
     }
     .nav-links a:hover {
-      color: #ff5733; /* Orange on hover for all links */
-      transform: scale(1.2); /* Slight scale up on hover */
+      color: #ff5733;
+      transform: scale(1.2);
     }
     .content-wrapper {
       position: relative;
@@ -65,7 +62,7 @@
       position: fixed;
       bottom: 0;
       width: 100%;
-      background: rgba(135, 206, 235, 0.3); /* Match header's light blue with transparency */
+      background: rgba(135, 206, 235, 0.3);
       color: white;
       text-align: center;
       padding: 0.625rem 0;
@@ -73,11 +70,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+      transition: background 0.3s ease, box-shadow 0.3s ease;
     }
     .site-footer:hover {
-      background: rgba(135, 206, 235, 0.7); /* Slightly more opaque light blue on hover */
-      box-shadow: 0 0 15px rgba(135, 206, 235, 0.8); /* Glow effect */
+      background: rgba(135, 206, 235, 0.7);
+      box-shadow: 0 0 15px rgba(135, 206, 235, 0.8);
     }
     .site-footer a {
       color: white;
@@ -94,9 +91,8 @@
       transform: scale(1.1) rotate(2deg);
       box-shadow: 0 0 15px rgba(52, 152, 219, 1), 0 0 30px rgba(156, 39, 176, 0.8);
     }
-    /* Style for [Link] buttons */
     .extension-link {
-      color: #3498db; /* Blue color for the link */
+      color: #3498db;
       text-decoration: none;
       font-weight: bold;
       padding: 0.2rem 0.5rem;
@@ -104,14 +100,13 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     }
     .extension-link:hover {
-      transform: scale(1.1); /* Slight scale up */
-      background-color: rgba(52, 152, 219, 0.1); /* Light blue background */
-      box-shadow: 0 0 10px rgba(52, 152, 219, 0.7); /* Glowing effect */
+      transform: scale(1.1);
+      background-color: rgba(52, 152, 219, 0.1);
+      box-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
     }
-    /* Responsive Design */
     @media (max-width: 600px) {
       .content-wrapper {
-        margin: 4rem auto 5rem auto; /* Adjusted margin to account for fixed nav */
+        margin: 4rem auto 5rem auto;
         padding: 0 0.625rem;
       }
       .section {
@@ -119,17 +114,17 @@
         margin-bottom: 0.9375rem;
       }
       .header-nav {
-        padding: 0; /* Remove padding */
-        height: 2rem; /* Explicitly set height */
+        padding: 0;
+        height: 2rem;
         display: flex;
-        align-items: center; /* Center icons vertically */
-        justify-content: center; /* Center horizontally if needed */
-        background: rgba(135, 206, 235, 0.3); /* Light blue with transparency */
-        transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+        align-items: center;
+        justify-content: center;
+        background: rgba(135, 206, 235, 0.3);
+        transition: background 0.3s ease, box-shadow 0.3s ease;
       }
       .header-nav:hover {
-        background: rgba(135, 206, 235, 0.7); /* Slightly more opaque light blue on hover */
-        box-shadow: 0 0 15px rgba(135, 206, 235, 0.8); /* Glow effect */
+        background: rgba(135, 206, 235, 0.7);
+        box-shadow: 0 0 15px rgba(135, 206, 235, 0.8);
       }
       .nav-links {
         display: flex;
@@ -137,39 +132,39 @@
         height: 100%;
       }
       .nav-links a {
-        margin: 0 0.5rem; /* Adjust spacing between icons */
+        margin: 0 0.5rem;
         display: flex;
-        align-items: center; /* Center icon and hidden text */
-        color: #00008B; /* Dark Blue for all links except Home */
-        transition: color 0.3s ease, transform 0.3s ease; /* Add transition for hover */
+        align-items: center;
+        color: #00008B;
+        transition: color 0.3s ease, transform 0.3s ease;
       }
       .nav-links a.home-btn {
-        color: #800000; /* Deep Maroon for Home link */
+        color: #800000;
       }
       .nav-links a i {
-        font-size: 1.25rem; /* Current size */
+        font-size: 1.25rem;
       }
       .nav-links a span {
-        display: none; /* Hides text to ensure icons fit in one line */
+        display: none;
       }
       .nav-links a:hover {
-        color: #ff5733; /* Change color on hover */
-        transform: scale(1.2); /* Slight scale up on hover */
+        color: #ff5733;
+        transform: scale(1.2);
       }
       .site-footer {
-        padding: 0; /* Remove padding */
-        height: 2rem; /* Explicitly set height to match header */
-        background: rgba(135, 206, 235, 0.3); /* Match header's light blue */
-        transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+        padding: 0;
+        height: 2rem;
+        background: rgba(135, 206, 235, 0.3);
+        transition: background 0.3s ease, box-shadow 0.3s ease;
       }
       .site-footer:hover {
-        background: rgba(135, 206, 235, 0.7); /* Slightly more opaque light blue on hover */
-        box-shadow: 0 0 15px rgba(135, 206, 235, 0.8); /* Glow effect */
+        background: rgba(135, 206, 235, 0.7);
+        box-shadow: 0 0 15px rgba(135, 206, 235, 0.8);
       }
       .site-footer a {
-        font-size: 0.75rem; /* Smaller font size */
-        padding: 0.25rem 1rem; /* Reduced padding */
-        line-height: 1; /* Normalize line height */
+        font-size: 0.75rem;
+        padding: 0.25rem 1rem;
+        line-height: 1;
       }
     }
     @media (min-width: 601px) and (max-width: 900px) {
@@ -186,14 +181,12 @@
   </style>
 </head>
 <body>
-  <!-- Fixed Video Background -->
   <video id="background-video" autoplay loop muted playsinline preload="auto">
-    <source src="your-video.mp4" type="video/mp4"> <!-- Replace with your video file path -->
-    <source src="your-video.webm" type="video/webm"> <!-- Replace with your video file path -->
+    <source src="your-video.mp4" type="video/mp4">
+    <source src="your-video.webm" type="video/webm">
     Your browser does not support the video tag.
   </video>
 
-  <!-- Navigation -->
   <nav class="header-nav">
     <div class="nav-links">
       <a href="#" class="home-btn"><i class="fas fa-home"></i><span>Home</span></a>
@@ -206,11 +199,8 @@
     </div>
   </nav>
 
-  <!-- Main Content Wrapper -->
   <main class="content-wrapper">
-    <!-- Inline Content -->
     <div id="main-content">
-      <!-- Current Position -->
       <section class="section">
         <h2>CURRENT POSITION</h2>
         <p>
@@ -221,7 +211,6 @@
         </p>
       </section>
 
-      <!-- Education -->
       <section class="section" id="education">
         <h2>EDUCATION</h2>
         <ol>
@@ -229,16 +218,16 @@
             <strong>M.Sc. Horticulture (2018-2020)</strong><br>
             University of Florida, College of Agricultural and Life Sciences | GPA: 4.00<br>
             <em>Project Title:</em> Unraveling the effect of advanced horticultural practices on Huanglongbing-affected grapefruit
-            <a href="https://phuyaldinesh.github.io/Website-Hub/Documents/Thesis.pdf" target="_blank" class="extension-link">[Link]</a>
+            <a href="https://phuyaldinesh.github.io/Website-Hub/Documents/Diploma of master.pdf" target="_blank" class="extension-link">[Link]</a>
           </li>
           <li>
             <strong>B.Sc. Agriculture (2012-2016)</strong><br>
             Tribhuvan University, Institute of Agriculture and Animal Sciences, Nepal | Grade: Distinction
+            <a href="https://phuyaldinesh.github.io/Website-Hub/Documents/Diploma of undergraduate.pdf" target="_blank" class="extension-link">[Link]</a>
           </li>
         </ol>
       </section>
 
-      <!-- Peer-Reviewed Publications -->
       <section class="section" id="publications">
         <h2>PEER-REVIEWED PUBLICATIONS</h2>
         <div class="publications-container">
@@ -311,7 +300,6 @@
         </div>
       </section>
 
-      <!-- Extension Publications -->
       <section class="section" id="extension">
         <h2>EXTENSION PUBLICATIONS</h2>
         <div class="extension-container">
@@ -347,7 +335,6 @@
         </div>
       </section>
 
-      <!-- Journals Reviewed (New Section) -->
       <section class="section" id="journals-reviewed">
         <h2>JOURNALS REVIEWED</h2>
         <div class="journals-container">
@@ -376,7 +363,6 @@
         </div>
       </section>
 
-      <!-- Grant Application -->
       <section class="section" id="grant">
         <h2>GRANT APPLICATION</h2>
         <div class="grant-details">
@@ -399,7 +385,6 @@
         </div>
       </section>
 
-      <!-- Conference Presentations -->
       <section class="section" id="conferences">
         <h2>CONFERENCE PRESENTATIONS</h2>
         <div class="conference-summary">
@@ -408,7 +393,6 @@
         </div>
       </section>
 
-      <!-- Professional Membership & Leadership -->
       <section class="section" id="membership">
         <h2>PROFESSIONAL MEMBERSHIP & LEADERSHIP</h2>
         <table class="professional-table">
@@ -455,7 +439,6 @@
         </table>
       </section>
 
-      <!-- Fellowship and Awards -->
       <section class="section" id="awards">
         <h2>FELLOWSHIP AND AWARDS</h2>
         <table class="professional-table">
@@ -498,7 +481,6 @@
         </table>
       </section>
 
-      <!-- Teaching Experience -->
       <section class="section" id="teaching">
         <h2>TEACHING EXPERIENCE</h2>
         <div class="teaching-list">
@@ -537,7 +519,6 @@
         </div>
       </section>
 
-      <!-- Extension Activities -->
       <section class="section" id="extension-activities">
         <h2>EXTENSION ACTIVITIES</h2>
         <table class="professional-table">
@@ -547,7 +528,7 @@
             <th>Details</th>
           </tr>
           <tr>
-            <td>2023</td>
+            <td>November 2024</td>
             <td>ASA, CSSA, SSSA International Annual Meeting: Poster Judge</td>
             <td>Served as judge for five undergraduate poster competitions related to soil nutrition and plant physiology.</td>
           </tr>
@@ -597,7 +578,6 @@
         </table>
       </section>
 
-      <!-- Advocacy Activities -->
       <section class="section" id="advocacy">
         <h2>ADVOCACY ACTIVITIES</h2>
         <div class="teaching-item">
@@ -612,18 +592,18 @@
         </div>
       </section>
 
-      <!-- Certification -->
       <section class="section" id="certification">
         <h2>CERTIFICATION</h2>
         <div class="teaching-item">
           <div class="description">
-            📜 FAA Part 107 UAV Pilot License<br>
+            📜 FAA Part 107 UAV Pilot License
+            <a href="https://phuyaldinesh.github.io/Website-Hub/Documents/FAA license.pdf" target="_blank" class="extension-link">[Link]</a><br>
             📜 An Introduction to Evidence-Based Undergraduate STEM Teaching
+            <a href="https://phuyaldinesh.github.io/Website-Hub/Documents/CIRTL Completion Letter.pdf" target="_blank" class="extension-link">[Link]</a>
           </div>
         </div>
       </section>
 
-      <!-- Travel Grants -->
       <section class="section" id="travel">
         <h2>TRAVEL GRANTS</h2>
         <table class="professional-table">
@@ -666,7 +646,6 @@
     <a href="https://phuyaldinesh.github.io/Website-Hub/Documents/Dinesh_CV.pdf" target="_blank" title="Download CV (PDF)">Download my CV (PDF)</a>
   </footer>
 
-  <!-- Scripts -->
   <script src="videos.js"></script>
 </body>
 </html>

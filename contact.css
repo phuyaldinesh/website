@@ -75,11 +75,10 @@ body {
     display: block;
     margin: 0 auto 10px;
     transition: transform 0.3s ease;
-    /* Make it circular and remove rectangular border */
     border-radius: 50%;
-    object-fit: cover; /* Ensures the image fits within the circle */
-    border: none; /* Removes any default border */
-    background: transparent; /* Ensures no background if transparent */
+    object-fit: cover;
+    border: none;
+    background: transparent;
 }
 
 .website-logo:hover {
@@ -147,7 +146,7 @@ input:focus, textarea:focus {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s ease-in helmet-out, background 0.3s ease-in-out;
+    transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
     width: 100%;
     margin-top: 10px;
 }
@@ -195,6 +194,12 @@ input:focus, textarea:focus {
     width: 32px;
     height: 32px;
     margin-right: 8px;
+}
+
+/* Glow Animation for ORCID Icon */
+@keyframes glow {
+    from { box-shadow: 0 0 5px #00ff00; }
+    to { box-shadow: 0 0 15px #00ff00; }
 }
 
 /* Animations */
