@@ -8,177 +8,6 @@
   <link rel="stylesheet" href="theme.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    .header-nav {
-      background: rgba(135, 206, 235, 0.3);
-      z-index: 10;
-      width: 100%;
-      padding: 0.5rem 0;
-      position: fixed;
-      top: 0;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-    }
-    .header-nav:hover {
-      background: rgba(135, 206, 235, 0.7);
-      box-shadow: 0 0 15px rgba(135, 206, 235, 0.8);
-    }
-    .nav-links a {
-      color: #00008B;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
-    .nav-links a.home-btn {
-      color: #800000;
-    }
-    .nav-links a:hover {
-      color: #ff5733;
-      transform: scale(1.2);
-    }
-    .content-wrapper {
-      position: relative;
-      max-width: 90%;
-      margin: 3rem auto 6rem auto;
-      padding: 0 1rem;
-      z-index: 1;
-      transition: margin-top 0.3s ease;
-    }
-    .section {
-      background: #fff;
-      padding: 1.25rem;
-      margin-bottom: 1.25rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .section h2 {
-      font-size: clamp(1.25rem, 3vw, 1.5rem);
-      margin: 0 0 0.9375rem 0;
-      color: #333;
-    }
-    .section h2:before {
-      content: "|";
-      color: #ff5733;
-      margin-right: 0.625rem;
-    }
-    .site-footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: rgba(135, 206, 235, 0.3);
-      color: white;
-      text-align: center;
-      padding: 0.625rem 0;
-      z-index: 10;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-    }
-    .site-footer:hover {
-      background: rgba(135, 206, 235, 0.7);
-      box-shadow: 0 0 15px rgba(135, 206, 235, 0.8);
-    }
-    .site-footer a {
-      color: white;
-      text-decoration: none;
-      background: linear-gradient(45deg, #3498db, #9c27b0);
-      padding: 0.5rem 1.25rem;
-      border-radius: 25px;
-      font-weight: bold;
-      box-shadow: 0 0 10px rgba(52, 152, 219, 0.7), 0 0 20px rgba(156, 39, 176, 0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, rotate 0.3s ease;
-      font-size: clamp(0.875rem, 2vw, 1rem);
-    }
-    .site-footer a:hover {
-      transform: scale(1.1) rotate(2deg);
-      box-shadow: 0 0 15px rgba(52, 152, 219, 1), 0 0 30px rgba(156, 39, 176, 0.8);
-    }
-    .extension-link {
-      color: #3498db;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 0.2rem 0.5rem;
-      border-radius: 5px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    }
-    .extension-link:hover {
-      transform: scale(1.1);
-      background-color: rgba(52, 152, 219, 0.1);
-      box-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
-    }
-    @media (max-width: 600px) {
-      .content-wrapper {
-        margin: 4rem auto 5rem auto;
-        padding: 0 0.625rem;
-      }
-      .section {
-        padding: 0.9375rem;
-        margin-bottom: 0.9375rem;
-      }
-      .header-nav {
-        padding: 0;
-        height: 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(135, 206, 235, 0.3);
-        transition: background 0.3s ease, box-shadow 0.3s ease;
-      }
-      .header-nav:hover {
-        background: rgba(135, 206, 235, 0.7);
-        box-shadow: 0 0 15px rgba(135, 206, 235, 0.8);
-      }
-      .nav-links {
-        display: flex;
-        align-items: center;
-        height: 100%;
-      }
-      .nav-links a {
-        margin: 0 0.5rem;
-        display: flex;
-        align-items: center;
-        color: #00008B;
-        transition: color 0.3s ease, transform 0.3s ease;
-      }
-      .nav-links a.home-btn {
-        color: #800000;
-      }
-      .nav-links a i {
-        font-size: 1.25rem;
-      }
-      .nav-links a span {
-        display: none;
-      }
-      .nav-links a:hover {
-        color: #ff5733;
-        transform: scale(1.2);
-      }
-      .site-footer {
-        padding: 0;
-        height: 2rem;
-        background: rgba(135, 206, 235, 0.3);
-        transition: background 0.3s ease, box-shadow 0.3s ease;
-      }
-      .site-footer:hover {
-        background: rgba(135, 206, 235, 0.7);
-        box-shadow: 0 0 15px rgba(135, 206, 235, 0.8);
-      }
-      .site-footer a {
-        font-size: 0.75rem;
-        padding: 0.25rem 1rem;
-        line-height: 1;
-      }
-    }
-    @media (min-width: 601px) and (max-width: 900px) {
-      .content-wrapper {
-        max-width: 85%;
-        margin: 3.5rem auto 6rem auto;
-      }
-    }
-    @media (min-width: 901px) {
-      .content-wrapper {
-        max-width: 900px;
-      }
-    }
-  </style>
 </head>
 <body>
   <video id="background-video" autoplay loop muted playsinline preload="auto">
@@ -189,13 +18,13 @@
 
   <nav class="header-nav">
     <div class="nav-links">
-      <a href="#" class="home-btn"><i class="fas fa-home"></i><span>Home</span></a>
-      <a href="#education" class="tab-btn"><i class="fas fa-graduation-cap"></i><span>Education</span></a>
-      <a href="#publications" class="tab-btn"><i class="fas fa-book"></i><span>Publications</span></a>
-      <a href="#conferences" class="tab-btn"><i class="fas fa-chalkboard-teacher"></i><span>Conferences</span></a>
-      <a href="news.html" target="_blank" class="tab-btn"><i class="fas fa-newspaper"></i><span>News</span></a>
-      <a href="https://phuyaldinesh.github.io/videos/" target="_blank" class="tab-btn"><i class="fas fa-video"></i><span>My Videos</span></a>
-      <a href="contact.html" target="_blank" class="tab-btn"><i class="fas fa-envelope"></i><span>Contact</span></a>
+      <a href="#" class="home-btn"><img src="icons/Home.png" alt="Home"><span>Home</span></a>
+      <a href="#education" class="tab-btn desktop-only"><i class="fas fa-graduation-cap"></i><span>Education</span></a>
+      <a href="#publications" class="tab-btn"><img src="icons/Publication.png" alt="Publications"><span>Publications</span></a>
+      <a href="#conferences" class="tab-btn desktop-only"><i class="fas fa-chalkboard-teacher"></i><span>Conferences</span></a>
+      <a href="news.html" target="_blank" class="tab-btn"><img src="icons/News.png" alt="News"><span>News</span></a>
+      <a href="https://phuyaldinesh.github.io/videos/" target="_blank" class="tab-btn"><img src="icons/Video.png" alt="My Videos"><span>My Videos</span></a>
+      <a href="contact.html" target="_blank" class="tab-btn"><img src="icons/Contact.png" alt="Contact" onerror="this.src=''; this.className='fas fa-envelope';"><span>Contact</span></a>
     </div>
   </nav>
 
@@ -205,7 +34,7 @@
         <h2>CURRENT POSITION</h2>
         <p>
           <strong>Ph.D. Student and Graduate Assistant</strong><br>
-          Soil and Crop Sciences Department | Texas A&M University<br>
+          Soil and Crop Sciences Department | <a href="https://www.tamu.edu/" target="_blank" class="university-link">Texas A&M University</a><br>
           College of Agriculture and Life Sciences, United States (Summer 2020 – Present)<br>
           <em>Project Title:</em> Investigating the Biological Nitrification Inhibition Activity in Selected Sorghum Genotypes
         </p>
@@ -216,13 +45,13 @@
         <ol>
           <li>
             <strong>M.Sc. Horticulture (2018-2020)</strong><br>
-            University of Florida, College of Agricultural and Life Sciences | GPA: 4.00
+            <a href="https://www.ufl.edu/" target="_blank" class="university-link">University of Florida</a>, College of Agricultural and Life Sciences | GPA: 4.00
             <a href="https://phuyaldinesh.github.io/Website-Hub/Documents/Diploma of master.pdf" target="_blank" class="extension-link">[Link]</a><br>
             <em>Project Title:</em> Unraveling the effect of advanced horticultural practices on Huanglongbing-affected grapefruit
           </li>
           <li>
             <strong>B.Sc. Agriculture (2012-2016)</strong><br>
-            Tribhuvan University, Institute of Agriculture and Animal Sciences, Nepal | Grade: Distinction
+            <a href="https://www.tu.edu.np/" target="_blank" class="university-link">Tribhuvan University</a>, Institute of Agriculture and Animal Sciences, Nepal | Grade: Distinction
             <a href="https://phuyaldinesh.github.io/Website-Hub/Documents/Diploma of undergraduate.pdf" target="_blank" class="extension-link">[Link]</a>
           </li>
         </ol>
@@ -396,88 +225,96 @@
       <section class="section" id="membership">
         <h2>PROFESSIONAL MEMBERSHIP & LEADERSHIP</h2>
         <table class="professional-table">
-          <tr>
-            <th>Years</th>
-            <th>Role / Organization</th>
-          </tr>
-          <tr>
-            <td>2022-2023</td>
-            <td>Vice President: Soil and Crop Sciences Graduate Organization</td>
-          </tr>
-          <tr>
-            <td>2021-2022</td>
-            <td>International Student Association (External Programs Committee)</td>
-          </tr>
-          <tr>
-            <td>2019-Present</td>
-            <td>Soil Science Society of America</td>
-          </tr>
-          <tr>
-            <td>2019-Present</td>
-            <td>Crop Science Society of America</td>
-          </tr>
-          <tr>
-            <td>2019-Present</td>
-            <td>American Society of Agronomy</td>
-          </tr>
-          <tr>
-            <td>2020-2021</td>
-            <td>NAPA Career and Outreach Committee</td>
-          </tr>
-          <tr>
-            <td>2018-2020</td>
-            <td>UF Treasure Coast Graduate Student Organization</td>
-          </tr>
-          <tr>
-            <td>2018-2020</td>
-            <td>Florida State Horticultural Society</td>
-          </tr>
-          <tr>
-            <td>2018-2020</td>
-            <td>American Society for Horticultural Science</td>
-          </tr>
+          <thead>
+            <tr>
+              <th>Years</th>
+              <th>Role / Organization</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Years">2022-2023</td>
+              <td data-label="Role / Organization">Vice President: Soil and Crop Sciences Graduate Organization</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2021-2022</td>
+              <td data-label="Role / Organization">International Student Association (External Programs Committee)</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2019-Present</td>
+              <td data-label="Role / Organization">Soil Science Society of America</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2019-Present</td>
+              <td data-label="Role / Organization">Crop Science Society of America</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2019-Present</td>
+              <td data-label="Role / Organization">American Society of Agronomy</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2020-2021</td>
+              <td data-label="Role / Organization">NAPA Career and Outreach Committee</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2018-2020</td>
+              <td data-label="Role / Organization">UF Treasure Coast Graduate Student Organization</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2018-2020</td>
+              <td data-label="Role / Organization">Florida State Horticultural Society</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2018-2020</td>
+              <td data-label="Role / Organization">American Society for Horticultural Science</td>
+            </tr>
+          </tbody>
         </table>
       </section>
 
       <section class="section" id="awards">
         <h2>FELLOWSHIP AND AWARDS</h2>
         <table class="professional-table">
-          <tr>
-            <th>Years</th>
-            <th>Award Details</th>
-          </tr>
-          <tr>
-            <td>2022-23</td>
-            <td><strong>Encompass Scholar (ASA-CSSA-SSSA):</strong> Participated in a professional development workshop.</td>
-          </tr>
-          <tr>
-            <td>2022</td>
-            <td><strong>ASA-CSSA-SSSA SEED Ambassador:</strong> Advocacy training to connect scientists with members of Congress.</td>
-          </tr>
-          <tr>
-            <td>2022-23</td>
-            <td><strong>Future Leaders in Science:</strong> Participated in 2022 Virtual Congressional Visits Day. Visited offices of Sen. Ted Cruz, Rep. Jake Ellzey, Rep. Roger Williams, and Rep. Henry Cuellar.</td>
-          </tr>
-          <tr>
-            <td>2019</td>
-            <td><strong>Yara North America Crop Innovation Scholarship:</strong> Awarded for outstanding academic and research record at University of Florida.</td>
-          </tr>
-          <tr>
-            <td>2019</td>
-            <td><strong>Center for Stress Resilient Agriculture, UF:</strong> Participated in innovative root course.</td>
-          </tr>
-          <tr>
-            <td>2018</td>
-            <td><strong>LI-COR Biosciences Training Travel Award:</strong> Participated in LICOR 6400 photosynthesis equipment training.</td>
-          </tr>
-          <tr>
-            <td>2012-2016</td>
-            <td><strong>Tribhuvan University Scholarship:</strong> Awarded for outstanding academic performance across all semesters.</td>
-          </tr>
-          <tr>
-            <td>2012</td>
-            <td><strong>Tribhuvan University Merit Admission Scholarship:</strong> Awarded for high score in admission exam.</td>
-          </tr>
+          <thead>
+            <tr>
+              <th>Years</th>
+              <th>Award Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Years">2022-23</td>
+              <td data-label="Award Details"><strong>Encompass Scholar (ASA-CSSA-SSSA):</strong> Participated in a professional development workshop.</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2022</td>
+              <td data-label="Award Details"><strong>ASA-CSSA-SSSA SEED Ambassador:</strong> Advocacy training to connect scientists with members of Congress.</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2022-23</td>
+              <td data-label="Award Details"><strong>Future Leaders in Science:</strong> Participated in 2022 Virtual Congressional Visits Day. Visited offices of Sen. Ted Cruz, Rep. Jake Ellzey, Rep. Roger Williams, and Rep. Henry Cuellar.</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2019</td>
+              <td data-label="Award Details"><strong>Yara North America Crop Innovation Scholarship:</strong> Awarded for outstanding academic and research record at University of Florida.</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2019</td>
+              <td data-label="Award Details"><strong>Center for Stress Resilient Agriculture, UF:</strong> Participated in innovative root course.</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2018</td>
+              <td data-label="Award Details"><strong>LI-COR Biosciences Training Travel Award:</strong> Participated in LICOR 6400 photosynthesis equipment training.</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2012-2016</td>
+              <td data-label="Award Details"><strong>Tribhuvan University Scholarship:</strong> Awarded for outstanding academic performance across all semesters.</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2012</td>
+              <td data-label="Award Details"><strong>Tribhuvan University Merit Admission Scholarship:</strong> Awarded for high score in admission exam.</td>
+            </tr>
+          </tbody>
         </table>
       </section>
 
@@ -522,59 +359,63 @@
       <section class="section" id="extension-activities">
         <h2>EXTENSION ACTIVITIES</h2>
         <table class="professional-table">
-          <tr>
-            <th>Date</th>
-            <th>Activity</th>
-            <th>Details</th>
-          </tr>
-          <tr>
-            <td>November 2024</td>
-            <td>ASA, CSSA, SSSA International Annual Meeting: Poster Judge</td>
-            <td>Served as judge for five undergraduate poster competitions related to soil nutrition and plant physiology.</td>
-          </tr>
-          <tr>
-            <td>March 2023</td>
-            <td>Student Research Week, Texas A&M University</td>
-            <td>Graded and scored six posters from undergraduate and graduate students.</td>
-          </tr>
-          <tr>
-            <td>January 2022</td>
-            <td>Student Research Week, Texas A&M University</td>
-            <td>Judged and scored eight posters from undergraduate students.</td>
-          </tr>
-          <tr>
-            <td>January 2018 & 2019</td>
-            <td>Florida Citrus Show</td>
-            <td>
-              <ul>
-                <li>Assisted at registration desk</li>
-                <li>Managed A/V equipment for 30+ presenters</li>
-                <li>Served 800+ attendees</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>January 2018</td>
-            <td>Agricultural Workers Training</td>
-            <td>
-              <ul>
-                <li>Interacted with growers</li>
-                <li>Managed seminar setup/teardown</li>
-                <li>Served 300+ attendees</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>August 2019</td>
-            <td>Citrus Expo</td>
-            <td>
-              Prepared and presented two grower-focused posters:
-              <ul>
-                <li>Tree Density and Micronutrient Application on Grapefruit Affected by Huanglongbing</li>
-                <li>Application of Soil Moisture Sensors</li>
-              </ul>
-            </td>
-          </tr>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Activity</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Date">November 2024</td>
+              <td data-label="Activity">ASA, CSSA, SSSA International Annual Meeting: Poster Judge</td>
+              <td data-label="Details">Served as judge for five undergraduate poster competitions related to soil nutrition and plant physiology.</td>
+            </tr>
+            <tr>
+              <td data-label="Date">March 2023</td>
+              <td data-label="Activity">Student Research Week, Texas A&M University</td>
+              <td data-label="Details">Graded and scored six posters from undergraduate and graduate students.</td>
+            </tr>
+            <tr>
+              <td data-label="Date">January 2022</td>
+              <td data-label="Activity">Student Research Week, Texas A&M University</td>
+              <td data-label="Details">Judged and scored eight posters from undergraduate students.</td>
+            </tr>
+            <tr>
+              <td data-label="Date">January 2018 & 2019</td>
+              <td data-label="Activity">Florida Citrus Show</td>
+              <td data-label="Details">
+                <ul>
+                  <li>Assisted at registration desk</li>
+                  <li>Managed A/V equipment for 30+ presenters</li>
+                  <li>Served 800+ attendees</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Date">January 2018</td>
+              <td data-label="Activity">Agricultural Workers Training</td>
+              <td data-label="Details">
+                <ul>
+                  <li>Interacted with growers</li>
+                  <li>Managed seminar setup/teardown</li>
+                  <li>Served 300+ attendees</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Date">August 2019</td>
+              <td data-label="Activity">Citrus Expo</td>
+              <td data-label="Details">
+                Prepared and presented two grower-focused posters:
+                <ul>
+                  <li>Tree Density and Micronutrient Application on Grapefruit Affected by Huanglongbing</li>
+                  <li>Application of Soil Moisture Sensors</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </section>
 
@@ -607,45 +448,68 @@
       <section class="section" id="travel">
         <h2>TRAVEL GRANTS</h2>
         <table class="professional-table">
-          <tr>
-            <th>Date</th>
-            <th>Grant</th>
-            <th>Details</th>
-          </tr>
-          <tr>
-            <td>2022</td>
-            <td>The Lloyd and Maxine Rooney Fellowship Endowment</td>
-            <td>Presented research at an international conference</td>
-          </tr>
-          <tr>
-            <td>2021</td>
-            <td>The Lloyd and Maxine Rooney Fellowship Endowment</td>
-            <td>
-              <ul>
-                <li>International Travel scholarship (unused due to conference postponement)</li>
-                <li>Graduate Student Leadership Conference participation</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>2019</td>
-            <td>American Society for Horticultural Science Travel Grant</td>
-            <td>
-              <ul>
-                <li>Presented research at ASHS international conference</li>
-                <li>Gradient Student Council Travel Award</li>
-              </ul>
-            </td>
-          </tr>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Grant</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Date">2022</td>
+              <td data-label="Grant">The Lloyd and Maxine Rooney Fellowship Endowment</td>
+              <td data-label="Details">Presented research at an international conference</td>
+            </tr>
+            <tr>
+              <td data-label="Date">2021</td>
+              <td data-label="Grant">The Lloyd and Maxine Rooney Fellowship Endowment</td>
+              <td data-label="Details">
+                <ul>
+                  <li>International Travel scholarship (unused due to conference postponement)</li>
+                  <li>Graduate Student Leadership Conference participation</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Date">2019</td>
+              <td data-label="Grant">American Society for Horticultural Science Travel Grant</td>
+              <td data-label="Details">
+                <ul>
+                  <li>Presented research at ASHS international conference</li>
+                  <li>Gradient Student Council Travel Award</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </section>
     </div>
   </main>
 
   <footer class="site-footer">
-    <a href="https://phuyaldinesh.github.io/Website-Hub/Documents/Dinesh_CV.pdf" target="_blank" title="Download CV (PDF)">Download my CV (PDF)</a>
+    <a href="https://phuyaldinesh.github.io/Website-Hub/Documents/Dinesh_CV.pdf" target="_blank" title="Download CV (PDF)" id="footer-link">Download my CV (PDF)</a>
   </footer>
 
   <script src="videos.js"></script>
+  <script>
+    // Function to toggle footer text visibility
+    function toggleFooterVisibility() {
+      const footerLink = document.getElementById('footer-link');
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // Show footer text only when exactly at the bottom
+      if (scrollPosition >= documentHeight) {
+        footerLink.classList.add('visible');
+      } else {
+        footerLink.classList.remove('visible');
+      }
+    }
+
+    // Event listeners for scroll and initial check
+    window.addEventListener('scroll', toggleFooterVisibility);
+    window.addEventListener('load', toggleFooterVisibility);
+  </script>
 </body>
 </html>
