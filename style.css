@@ -104,13 +104,14 @@ h1, h2, h3 {
     background: white;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    transition: var(--transition);
     border: 1px solid var(--border-color, #e0e0e0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border-color: #ff5733;
 }
 
 .section h2 {
@@ -319,6 +320,12 @@ h1, h2, h3 {
         margin: 1rem 0;
         font-size: 0.875rem; /* 14px */
         line-height: 1.5;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        border-color: #ff5733;
     }
     .section h2 {
         font-size: 1.125rem; /* 18px */
@@ -386,6 +393,12 @@ h1, h2, h3 {
     .section {
         padding: 1.5rem;
         font-size: 0.9375rem; /* 15px */
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .section:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.13);
+        border-color: #ff5733;
     }
     .professional-table {
         font-size: 0.9375rem; /* 15px */
