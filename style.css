@@ -29,6 +29,10 @@ h1, h2, h3 {
     font-weight: 700;
 }
 
+h3 {
+    text-transform: none; /* Ensure h3 subheadings respect the case in HTML */
+}
+
 /* Navigation */
 .header-nav {
     background: rgba(135, 206, 235, 0.3);

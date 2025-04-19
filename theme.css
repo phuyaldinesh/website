@@ -65,6 +65,10 @@ h1, h2, h3 {
     letter-spacing: 2px;
 }
 
+h3 {
+    text-transform: none; /* Ensure h3 subheadings respect the case in HTML */
+}
+
 /* Links */
 a {
     color: var(--primary-color);
