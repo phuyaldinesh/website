@@ -98,24 +98,41 @@ body {
         padding: 0.5rem 0;
     }
     .nav-links {
-        gap: 1rem;
+        gap: 1.5rem;
         justify-content: space-around;
-        padding: 0;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        margin: 0.5rem;
     }
     .nav-links a {
         font-size: 0; /* Hide text */
-        padding: 0.5rem;
+        padding: 0.8rem;
         color: #fff;
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+        transition: transform 0.3s ease, background 0.3s ease;
+        position: relative;
+        opacity: 0;
+        animation: fadeInNav 0.5s ease forwards;
     }
-    .nav-links a i {
-        font-size: 1.2rem; /* Larger icons for mobile */
-        display: inline-block;
+    .nav-links a:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links a:nth-child(2) { animation-delay: 0.2s; }
+    .nav-links a:nth-child(3) { animation-delay: 0.3s; }
+    .nav-links a:nth-child(4) { animation-delay: 0.4s; }
+    @keyframes fadeInNav {
+        from { opacity: 0; transform: scale(0.5); }
+        to { opacity: 1; transform: scale(1); }
     }
-    /* Icon colors for visual appeal */
-    .nav-links a:nth-child(1) i { color: #27ae60; } /* Home */
-    .nav-links a:nth-child(2) i { color: #e74c3c; } /* Conferences */
-    .nav-links a:nth-child(3) i { color: #f1c40f; } /* Publications */
-    .nav-links a:nth-child(4) i { color: #3498db; } /* Contact */
+    .nav-links a:hover {
+        transform: scale(1.1);
+        background: rgba(0, 0, 0, 0.6);
+    }
 }
 
 .content-wrapper {
@@ -275,6 +292,7 @@ h1::after {
     }
     .content-wrapper {
         padding: 1rem;
+        padding-top: 5rem; /* Added padding to account for header height */
     }
     .section {
         padding: 1.5rem;
