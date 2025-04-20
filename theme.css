@@ -1,8 +1,8 @@
 /* Default Colorful Theme */
 :root {
-    --primary-color: #ff5733;  /* Vibrant red-orange */
-    --secondary-color: #ffbd33; /* Warm yellow */
-    --background-color: #f6f5f2; /* Light cream */
+    --primary-color: #ff5733;
+    --secondary-color: #ffbd33;
+    --background-color: #f6f5f2;
     --text-color: #222;
     --heading-color: #111;
     --border-color: #e0e0e0;
@@ -12,8 +12,8 @@
 
 /* Dark Mode */
 [data-theme="dark"] {
-    --primary-color: #e91e63; /* Hot pink */
-    --secondary-color: #9c27b0; /* Deep purple */
+    --primary-color: #e91e63;
+    --secondary-color: #9c27b0;
     --background-color: #1e1e1e;
     --text-color: #f1f1f1;
     --heading-color: #fff;
@@ -22,40 +22,61 @@
     --button-text: #fff;
 }
 
-/* Fixed Video Background */
+/* Video Background */
 #background-video {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the video fills the viewport without stretching */
-    z-index: -1; /* Places the video behind all content */
-    opacity: 0.7; /* Adjust opacity for readability (optional) */
-    display: block; /* Ensure visibility on all devices */
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.7;
+    display: block;
 }
 
-/* General Styles for Body and Content */
+/* Body Fade-in Animation */
 body {
-    background-color: var(--background-color); /* Fallback if video fails */
+    background-color: var(--background-color);
     color: var(--text-color);
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
-    overflow-x: hidden; /* Prevents horizontal scroll from video */
+    animation: fadeInBody 1s ease-in-out forwards;
+    opacity: 0;
 }
 
-/* Ensure content is readable over the video */
+@keyframes fadeInBody {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Content Overlay */
 .content-wrapper {
-    position: relative; /* Ensures content stays above the video */
-    background: rgba(255, 255, 255, 0.8); /* Optional: Light overlay for readability in light mode */
-    padding: 20px; /* Optional: Add padding for spacing */
+    position: relative;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(30px);
+    opacity: 0;
+    animation: fadeUp 1s ease-out forwards;
+    animation-delay: 0.3s;
 }
 
-/* Dark mode adjustment for content overlay */
+@keyframes fadeUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 [data-theme="dark"] .content-wrapper {
-    background: rgba(30, 30, 30, 0.8); /* Dark overlay for dark mode */
+    background: rgba(30, 30, 30, 0.8);
 }
 
 /* Headings */
@@ -63,10 +84,21 @@ h1, h2, h3 {
     color: var(--heading-color);
     text-transform: uppercase;
     letter-spacing: 2px;
+    animation: glowText 3s ease-in-out infinite alternate;
 }
 
 h3 {
-    text-transform: none; /* Ensure h3 subheadings respect the case in HTML */
+    text-transform: none;
+    animation: none;
+}
+
+@keyframes glowText {
+    from {
+        text-shadow: 0 0 5px var(--primary-color);
+    }
+    to {
+        text-shadow: 0 0 15px var(--secondary-color), 0 0 25px var(--primary-color);
+    }
 }
 
 /* Links */
@@ -92,36 +124,74 @@ button {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 20px rgba(255, 87, 51, 0.3);
+    animation: bounceIn 1s ease;
 }
 
 button:hover {
     transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 87, 51, 0.5);
 }
 
-/* Responsive Design */
+/* Scroll Animation for Sections */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fallback for small screens */
 @media (max-width: 768px) {
     .container {
         width: 95%;
     }
-    /* Ensure video displays on mobile */
+
     #background-video {
-        display: block; /* Explicitly show video on mobile */
-        object-fit: cover; /* Maintain aspect ratio */
+        display: block;
+        object-fit: cover;
         width: 100%;
         height: 100%;
     }
 }
 
-/* Optional: Fallback image on very small screens if video fails */
 @media (max-width: 480px) {
     #background-video {
-        display: block; /* Keep video visible unless it fails */
+        display: block;
     }
+
     body {
-        background-image: url("MainPage/Background.jpg"); /* Fallback image */
+        background-image: url("MainPage/Background.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+    }
+
+    .content-wrapper {
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    [data-theme="dark"] .content-wrapper {
+        background: rgba(0, 0, 0, 0.8);
+    }
+}
+
+/* Bounce animation */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
     }
 }

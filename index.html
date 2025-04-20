@@ -8,6 +8,41 @@
   <link rel="stylesheet" href="theme.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.3s ease, background-color 0.3s ease;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .section:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      background-color: rgba(255, 255, 255, 1);
+      transform: translateY(-5px);
+    }
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #4facfe, #00f2fe);
+      border-radius: 8px 8px 0 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .section.visible::before {
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
   <video id="background-video" autoplay loop muted playsinline preload="auto">
@@ -507,9 +542,28 @@
       }
     }
 
+    // Scroll-based reveal animation
+    function revealSections() {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        // Trigger animation when section is 80% into view
+        if (sectionTop < windowHeight * 0.8) {
+          section.classList.add('visible');
+        }
+      });
+    }
+
     // Event listeners for scroll and initial check
-    window.addEventListener('scroll', toggleFooterVisibility);
-    window.addEventListener('load', toggleFooterVisibility);
+    window.addEventListener('scroll', () => {
+      toggleFooterVisibility();
+      revealSections();
+    });
+    window.addEventListener('load', () => {
+      toggleFooterVisibility();
+      revealSections();
+    });
   </script>
 </body>
 </html>
