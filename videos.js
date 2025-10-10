@@ -13,10 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'Background/Video (11).mp4',
         'Background/Video (12).mp4',
         'Background/Video (13).mp4',
-        'Background/Video (14).mp4',
-        'Background/Video (15).mp4',
-        'Background/Video (16).mp4',
-        'Background/Video (17).mp4',
     ];
     const randomIndex = Math.floor(Math.random() * videos.length);
     const randomVideo = videos[randomIndex];
