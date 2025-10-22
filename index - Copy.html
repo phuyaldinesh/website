@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic CV</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="theme.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.3s ease, background-color 0.3s ease;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .section:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      background-color: rgba(255, 255, 255, 1);
+      transform: translateY(-5px);
+    }
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #4facfe, #00f2fe);
+      border-radius: 8px 8px 0 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .section.visible::before {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <video id="background-video" autoplay loop muted playsinline preload="auto">
+    <source src="your-video.mp4" type="video/mp4">
+    <source src="your-video.webm" type="video/webm">
+    Your browser does not support the video tag.
+  </video>
+
+  <nav class="header-nav">
+    <div class="nav-links">
+      <a href="#" class="home-btn"><img src="Icons/Home.png" alt="Home"><span>Home</span></a>
+      <a href="#education" class="tab-btn desktop-only"><i class="fas fa-graduation-cap"></i><span>Education</span></a>
+      <a href="#publications" class="tab-btn"><img src="Icons/Publication.png" alt="Publications"><span>Publications</span></a>
+      <a href="#conferences" class="tab-btn desktop-only"><i class="fas fa-chalkboard-teacher"></i><span>Conferences</span></a>
+      <a href="news.html" class="tab-btn"><img src="Icons/News.png" alt="News"><span>News</span></a>
+      <a href="https://phuyaldinesh.github.io/videos/" class="tab-btn"><img src="Icons/Video.png" alt="My Videos"><span>My Videos</span></a>
+      <a href="contact.html" class="tab-btn"><img src="Icons/Contact.png" alt="Contact" onerror="this.src=''; this.className='fas fa-envelope';"><span>Contact</span></a>
+    </div>
+  </nav>
+
+  <main class="content-wrapper">
+    <div id="main-content">
+      <section class="section">
+        <h2>CURRENT POSITION</h2>
+        <p>
+          <strong>Postdoctoral Associate</strong><br>
+          Department of Soil, Water, and Ecosystem Sciences | <a href="https://www.ufl.edu/" target="_blank" class="university-link">University of Florida</a><br>
+          College of Agricultural and Life Sciences (Summer 2025 – Present)<br>
+          <em>Project:</em> Soil Nutrient Management: BMP Project
+        </p>
+      </section>
+
+      <section class="section" id="education">
+        <h2>EDUCATION</h2>
+        <ol>
+          <li>
+            <strong>Ph.D. Agronomy (2020-2025)</strong><br>
+            <a href="https://www.tamu.edu/" target="_blank" class="university-link">Texas A&M University</a>, College of Agricultural and Life Sciences | GPA: 4.00
+            <a href="https://phuyaldinesh.github.io/Website-Hub/Documents/Diploma%20of%20PhD.pdf" target="_blank" class="extension-link">[Link]</a><br>
+            <em>Project Title:</em> Investigating the Biological Nitrification Inhibition Activity in Selected Sorghum Genotypes
+          </li>
+          <li>
+            <strong>M.Sc. Horticulture (2018-2020)</strong><br>
+            <a href="https://www.ufl.edu/" target="_blank" class="university-link">University of Florida</a>, College of Agricultural and Life Sciences | GPA: 4.00
+            <a href="https://phuyaldinesh.github.io/Website-Hub/Documents/Diploma of master.pdf" target="_blank" class="extension-link">[Link]</a><br>
+            <em>Project Title:</em> Unraveling the effect of advanced horticultural practices on Huanglongbing-affected grapefruit
+          </li>
+          <li>
+            <strong>B.Sc. Agriculture (2012-2016)</strong><br>
+            <a href="https://www.tu.edu.np/" target="_blank" class="university-link">Tribhuvan University</a>, Institute of Agriculture and Animal Sciences, Nepal | Grade: Distinction
+            <a href="https://phuyaldinesh.github.io/Website-Hub/Documents/Diploma of undergraduate.pdf" target="_blank" class="extension-link">[Link]</a>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section" id="publications">
+        <h2>PEER-REVIEWED PUBLICATIONS</h2>
+        <div class="publications-container">
+          <h3 class="subsection-header">Published Articles</h3>
+          <ol class="publication-list">
+            <li class="publication-item">
+              <div class="citation">
+                Phuyal, D., & Nair, V. D. (2025). The Dynamics, Analysis, and Sustainable Management 
+                of Phosphorus in Muck Soils: A Review. 
+                <em>Frontiers in Environmental Science</em>, 13, 1703620.
+              </div>
+              <a href="https://doi.org/10.3389/fenvs.2025.1703620" class="doi-link" target="_blank">
+                https://doi.org/10.3389/fenvs.2025.1703620
+              </a>
+            </li>
+            <li class="publication-item">
+              <div class="citation">
+                Ghosh, E., Rajan, N., Phuyal, D., Subramanian, N., & Bagavathiannan, M. (2024). 
+                High rhizospheric ammonium levels in Sorghum halepense (johnsongrass) suggests 
+                nitrification inhibition potential. 
+                <em>Agricultural & Environmental Letters</em>, 9(2), e20137.
+              </div>
+              <a href="https://doi.org/10.1002/ael2.20137" class="doi-link" target="_blank">
+                https://doi.org/10.1002/ael2.20137
+              </a>
+            </li>
+            <li class="publication-item">
+              <div class="citation">
+                Phuyal, D., Nogueira, T. A. R., Jani, A. D., Kadyampakeni, D. M., Morgan, K. T., 
+                & Ferrarezi, R. S. (2020). 'Ray Ruby' Grapefruit Affected by Huanglongbing I. 
+                Planting Density and Soil Nutrient Management. 
+                <em>HortScience</em>, 55(9), 1411-1419.
+              </div>
+              <a href="https://doi.org/10.21273/HORTSCI15111-20" class="doi-link" target="_blank">
+                https://doi.org/10.21273/HORTSCI15111-20
+              </a>
+            </li>
+            <li class="publication-item">
+              <div class="citation">
+                Phuyal, D., Nogueira, T. A. R., Jani, A. D., Kadyampakeni, D. M., Morgan, K. T., 
+                & Ferrarezi, R. S. (2020). 'Ray Ruby' Grapefruit Affected by Huanglongbing II. 
+                Planting Density, Soil, and Foliar Nutrient Management. 
+                <em>HortScience</em>, 55(9), 1420-1432.
+              </div>
+              <a href="https://doi.org/10.21273/HORTSCI15255-20" class="doi-link" target="_blank">
+                https://doi.org/10.21273/HORTSCI15255-20
+              </a>
+            </li>
+          </ol>
+          <h3 class="subsection-header">Articles in Preparation</h3>
+          <ol class="preparation-list">
+            <li class="preparation-item">
+              Low-Intensity Prescribed Fire Has No Impact on Soil Physical Properties and Enzymatic 
+              Activity in the Post Oak Savannah Ecoregion. Watson et al. 
+              <span class="status">[Finalizing for <em>Vadose Zone Journal</em>]</span>
+            </li>
+            <li class="preparation-item">
+              Mechanistic insight on biochar effect on soil physical, chemical, and biological properties: 
+              A Review. Kafle et al. 
+              <span class="status">[Submitted: <em>Discover Soil</em>]</span>
+            </li>
+            <li class="preparation-item">
+              Fertilizer Types Impacts Biological Nitrification Inhibition of Sorghum and its Climate-smart 
+              Benefits. <span class="status">[In preparation - PI Reviewing]</span>
+            </li>
+            <li class="preparation-item">
+              Unraveling the Effect of Biological Nitrification Inhibition of Sorghum Under Different 
+              Soil Types. <span class="status">[In preparation - PI Reviewing]</span>
+            </li>
+            <li class="preparation-item">
+              The Biological Nitrification Inhibition Activity of Sorghum Shows a Potential Climate-Smart 
+              Solution for Sustainable Agriculture in a Field Condition. 
+              <span class="status">[In preparation - PI Reviewing]</span>
+            </li>
+            <li class="preparation-item">
+              Issues With Nitrogen Loss in Crop Production and Environment: Synthetic and Biological 
+              Approaches to Resolve It. <span class="status">[In preparation - PI Reviewing]</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="extension">
+        <h2>EXTENSION PUBLICATIONS</h2>
+        <div class="extension-container">
+          <ol class="extension-list">
+            <li class="extension-item">
+              <div class="citation">
+                Phuyal, D., & Davenport, R. (2022). Science Advocacy and Leadership Opportunities for Graduate Students. 
+                <em>CSA News</em>, September.
+              </div>
+              <a href="https://doi.org/10.1002/csan.20867" class="extension-link" target="_blank">[Link]</a>
+            </li>
+            <li class="extension-item">
+              <div class="citation">
+                Phuyal, D., & Ferrarezi, R. (2020). Improved Horticultural Practices for Grapefruit Production in the 
+                Indian River District. <em>Indian River Citrus League, Newsletter</em>, September.
+              </div>
+              <a href="https://phuyaldinesh.github.io/Website-Hub/Documents/IRCL-NL-9-20.pdf" class="extension-link" target="_blank">[Link]</a>
+            </li>
+            <li class="extension-item">
+              <div class="citation">
+                Ferrarezi, R., Phuyal, D., Kadyampakeni, D., & Morgan, K. (2020). Effect of Planting Density and Enhanced 
+                Nutrition on Grapefruit. <em>EDIS</em>, January.
+              </div>
+              <a href="https://journals.flvc.org/edis/article/view/118994" class="extension-link" target="_blank">[Link]</a>
+            </li>
+            <li class="extension-item">
+              <div class="citation">
+                Biological nitrification inhibition: A climate-smart solution and key for sustainability.
+              </div>
+              <span class="status">[In preparation - PI Reviewing]</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="journals-reviewed">
+        <h2>JOURNALS REVIEWED</h2>
+        <div class="journals-container">
+          <ol class="journals-list">
+            <li class="journal-item">
+              <div class="citation">
+                Frontiers in Plant Science (1 article reviewed)
+              </div>
+            </li>
+            <li class="journal-item">
+              <div class="citation">
+                Computers and Electronics in Agriculture (1 article reviewed)
+              </div>
+            </li>
+            <li class="journal-item">
+              <div class="citation">
+                Hort Science (1 article reviewed)
+              </div>
+            </li>
+            <li class="journal-item">
+              <div class="citation">
+                Agrosystems, Geosciences & Environment (3 articles reviewed)
+              </div>
+            </li>
+            <li class="journal-item">
+              <div class="citation">
+                Agronomy (3 articles reviewed)
+              </div>
+            </li>
+            <li class="journal-item">
+              <div class="citation">
+                Biology (3 articles reviewed)
+              </div>
+            </li>
+            <li class="journal-item">
+              <div class="citation">
+                Forests (2 articles reviewed)
+              </div>
+            </li>
+            <li class="journal-item">
+              <div class="citation">
+                Nitrogen (2 articles reviewed)
+              </div>
+            </li>
+            </ol>
+        </div>
+      </section>
+
+      <section class="section" id="conferences">
+        <h2>CONFERENCE PRESENTATIONS</h2>
+        <div class="conference-summary">
+          <p>24 peer-reviewed conference presentations delivered at international conferences (ASA, CSSA, SSSA Annual Meetings, ASHS, etc.).</p>
+          <a href="conferences.html" class="view-all-button">View All Conference Presentations →</a>
+        </div>
+      </section>
+
+      <section class="section" id="membership">
+        <h2>PROFESSIONAL MEMBERSHIP & LEADERSHIP</h2>
+        <table class="professional-table">
+          <thead>
+            <tr>
+              <th>Years</th>
+              <th>Role / Organization</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Years">2022-2023</td>
+              <td data-label="Role / Organization">Vice President: Soil and Crop Sciences Graduate Organization</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2021-2022</td>
+              <td data-label="Role / Organization">International Student Association (External Programs Committee)</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2019-Present</td>
+              <td data-label="Role / Organization">Soil Science Society of America</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2019-Present</td>
+              <td data-label="Role / Organization">Crop Science Society of America</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2019-Present</td>
+              <td data-label="Role / Organization">American Society of Agronomy</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2020-2021</td>
+              <td data-label="Role / Organization">NAPA Career and Outreach Committee</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2018-2020</td>
+              <td data-label="Role / Organization">UF Treasure Coast Graduate Student Organization</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2018-2020</td>
+              <td data-label="Role / Organization">Florida State Horticultural Society</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2018-2020</td>
+              <td data-label="Role / Organization">American Society for Horticultural Science</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" id="awards">
+        <h2>FELLOWSHIP AND AWARDS</h2>
+        <table class="professional-table">
+          <thead>
+            <tr>
+              <th>Years</th>
+              <th>Award Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Years">2022-23</td>
+              <td data-label="Award Details"><strong>Encompass Scholar (ASA-CSSA-SSSA):</strong> Participated in a professional development workshop.</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2022</td>
+              <td data-label="Award Details"><strong>ASA-CSSA-SSSA SEED Ambassador:</strong> Advocacy training to connect scientists with members of Congress.</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2022-23</td>
+              <td data-label="Award Details"><strong>Future Leaders in Science:</strong> Participated in 2022 Virtual Congressional Visits Day. Visited offices of Sen. Ted Cruz, Rep. Jake Ellzey, Rep. Roger Williams, and Rep. Henry Cuellar.</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2019</td>
+              <td data-label="Award Details"><strong>Yara North America Crop Innovation Scholarship:</strong> Awarded for outstanding academic and research record at University of Florida.</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2019</td>
+              <td data-label="Award Details"><strong>Center for Stress Resilient Agriculture, UF:</strong> Participated in innovative root course.</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2018</td>
+              <td data-label="Award Details"><strong>LI-COR Biosciences Training Travel Award:</strong> Participated in LICOR 6400 photosynthesis equipment training.</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2012-2016</td>
+              <td data-label="Award Details"><strong>Tribhuvan University Scholarship:</strong> Awarded for outstanding academic performance across all semesters.</td>
+            </tr>
+            <tr>
+              <td data-label="Years">2012</td>
+              <td data-label="Award Details"><strong>Tribhuvan University Merit Admission Scholarship:</strong> Awarded for high score in admission exam.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" id="teaching">
+        <h2>TEACHING EXPERIENCE</h2>
+        <div class="teaching-list">
+          <div class="teaching-item">
+            <h3>Teaching Assistant, Soil Fertility and Plant Nutrient Management Laboratory (SCSC 432)</h3>
+            <div class="institution">Texas A&M University, United States</div>
+            <div class="date">Fall 2024</div>
+            <div class="description">
+              Assist with the laboratory component for fourteen undergraduate students, focusing on methods used in soil testing, fertilizer recommendations, and the chemical/physical properties of soils. Guide analysis of soil characteristics and support students in applying these techniques.
+            </div>
+          </div>
+          <div class="teaching-item">
+            <h3>Teaching Assistant, Soil Science (SCSC 301)</h3>
+            <div class="institution">Texas A&M University, United States</div>
+            <div class="date">Spring 2022</div>
+            <div class="description">
+              Supported virtual and in-person instruction for fifty students. Facilitated laboratory sessions on soil physical/chemical/biological analysis. Guided interpretation of results and proctored exams.
+            </div>
+          </div>
+          <div class="teaching-item">
+            <h3>Teaching Assistant, World Food and Fiber Crops (SCSC 105)</h3>
+            <div class="institution">Texas A&M University, United States</div>
+            <div class="date">Fall 2021</div>
+            <div class="description">
+              Assisted twenty-four undergraduates in plant data collection, statistical analysis, and report presentation. Focused on technological aspects of agricultural practices and food production.
+            </div>
+          </div>
+          <div class="teaching-item">
+            <h3>Agriculture Instructor, Galkot Higher Secondary School</h3>
+            <div class="institution">Baglung, Nepal</div>
+            <div class="date">2016 - 2017</div>
+            <div class="description">
+              Led introductory course on entomology and vegetable production for thirty high school students, fostering foundational agricultural knowledge.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="extension-activities">
+        <h2>EXTENSION ACTIVITIES</h2>
+        <table class="professional-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Activity</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Date">November 2024</td>
+              <td data-label="Activity">ASA, CSSA, SSSA International Annual Meeting: Poster Judge</td>
+              <td data-label="Details">Served as judge for five undergraduate poster competitions related to soil nutrition and plant physiology.</td>
+            </tr>
+            <tr>
+              <td data-label="Date">March 2023</td>
+              <td data-label="Activity">Student Research Week, Texas A&M University</td>
+              <td data-label="Details">Graded and scored six posters from undergraduate and graduate students.</td>
+            </tr>
+            <tr>
+              <td data-label="Date">January 2022</td>
+              <td data-label="Activity">Student Research Week, Texas A&M University</td>
+              <td data-label="Details">Judged and scored eight posters from undergraduate students.</td>
+            </tr>
+            <tr>
+              <td data-label="Date">January 2018 & 2019</td>
+              <td data-label="Activity">Florida Citrus Show</td>
+              <td data-label="Details">
+                <ul>
+                  <li>Assisted at registration desk</li>
+                  <li>Managed A/V equipment for 30+ presenters</li>
+                  <li>Served 800+ attendees</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Date">January 2018</td>
+              <td data-label="Activity">Agricultural Workers Training</td>
+              <td data-label="Details">
+                <ul>
+                  <li>Interacted with growers</li>
+                  <li>Managed seminar setup/teardown</li>
+                  <li>Served 300+ attendees</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Date">August 2019</td>
+              <td data-label="Activity">Citrus Expo</td>
+              <td data-label="Details">
+                Prepared and presented two grower-focused posters:
+                <ul>
+                  <li>Tree Density and Micronutrient Application on Grapefruit Affected by Huanglongbing</li>
+                  <li>Application of Soil Moisture Sensors</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" id="advocacy">
+        <h2>ADVOCACY ACTIVITIES</h2>
+        <div class="teaching-item">
+          <h3>Congressional Meetings 2022</h3>
+          <div class="description">
+            <ul>
+              <li>Selected among 14 SEED Ambassadors nationwide by ASA</li>
+              <li>Communicated with offices of Sen. Ted Cruz, Rep. Jake Ellzey, Rep. Roger Williams, and Rep. Henry Cuellar</li>
+              <li>Advocated for USDA research funding</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="certification">
+        <h2>CERTIFICATION</h2>
+        <div class="teaching-item">
+          <div class="description">
+            📜 FAA Part 107 UAV Pilot License
+            <a href="https://phuyaldinesh.github.io/Website-Hub/Documents/FAA license.pdf" target="_blank" class="extension-link">[Link]</a><br>
+            📜 An Introduction to Evidence-Based Undergraduate STEM Teaching
+            <a href="https://phuyaldinesh.github.io/Website-Hub/Documents/CIRTL Completion Letter.pdf" target="_blank" class="extension-link">[Link]</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="travel">
+        <h2>TRAVEL GRANTS</h2>
+        <table class="professional-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Grant</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Date">2022</td>
+              <td data-label="Grant">The Lloyd and Maxine Rooney Fellowship Endowment</td>
+              <td data-label="Details">Presented research at an international conference</td>
+            </tr>
+            <tr>
+              <td data-label="Date">2021</td>
+              <td data-label="Grant">The Lloyd and Maxine Rooney Fellowship Endowment</td>
+              <td data-label="Details">
+                <ul>
+                  <li>International Travel scholarship (unused due to conference postponement)</li>
+                  <li>Graduate Student Leadership Conference participation</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Date">2019</td>
+              <td data-label="Grant">American Society for Horticultural Science Travel Grant</td>
+              <td data-label="Details">
+                <ul>
+                  <li>Presented research at ASHS international conference</li>
+                  <li>Gradient Student Council Travel Award</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <a href="https://phuyaldinesh.github.io/Website-Hub/Documents/Dinesh_CV.pdf" target="_blank" title="Download CV (PDF)" id="footer-link">Download my CV (PDF)</a>
+  </footer>
+
+  <script src="videos.js"></script>
+  <script>
+    // Function to toggle footer text visibility
+    function toggleFooterVisibility() {
+      const footerLink = document.getElementById('footer-link');
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // Show footer text only when exactly at the bottom
+      if (scrollPosition >= documentHeight) {
+        footerLink.classList.add('visible');
+      } else {
+        footerLink.classList.remove('visible');
+      }
+    }
+
+    // Scroll-based reveal animation
+    function revealSections() {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        // Trigger animation when section is 80% into view
+        if (sectionTop < windowHeight * 0.8) {
+          section.classList.add('visible');
+        }
+      });
+    }
+
+    // Event listeners for scroll and initial check
+    window.addEventListener('scroll', () => {
+      toggleFooterVisibility();
+      revealSections();
+    });
+    window.addEventListener('load', () => {
+      toggleFooterVisibility();
+      revealSections();
+    });
+  </script>
+</body>
+</html>

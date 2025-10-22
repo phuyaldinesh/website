@@ -8,41 +8,6 @@
   <link rel="stylesheet" href="theme.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    .section {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.3s ease, background-color 0.3s ease;
-      background-color: rgba(255, 255, 255, 0.95);
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .section:hover {
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      background-color: rgba(255, 255, 255, 1);
-      transform: translateY(-5px);
-    }
-    .section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, #4facfe, #00f2fe);
-      border-radius: 8px 8px 0 0;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .section.visible::before {
-      opacity: 1;
-    }
-  </style>
 </head>
 <body>
   <video id="background-video" autoplay loop muted playsinline preload="auto">
@@ -103,6 +68,16 @@
         <div class="publications-container">
           <h3 class="subsection-header">Published Articles</h3>
           <ol class="publication-list">
+            <li class="publication-item">
+              <div class="citation">
+                Phuyal, D., & Nair, V. D. (2025). The Dynamics, Analysis, and Sustainable Management 
+                of Phosphorus in Muck Soils: A Review. 
+                <em>Frontiers in Environmental Science</em>, 13, 1703620.
+              </div>
+              <a href="https://doi.org/10.3389/fenvs.2025.1703620" class="doi-link" target="_blank">
+                https://doi.org/10.3389/fenvs.2025.1703620
+              </a>
+            </li>
             <li class="publication-item">
               <div class="citation">
                 Ghosh, E., Rajan, N., Phuyal, D., Subramanian, N., & Bagavathiannan, M. (2024). 
@@ -250,28 +225,6 @@
               </div>
             </li>
             </ol>
-        </div>
-      </section>
-
-      <section class="section" id="grant">
-        <h2>GRANT APPLICATION</h2>
-        <div class="grant-details">
-          <div class="grant-item">
-            <span class="grant-label">Title:</span>
-            <span class="grant-value">“A Novel Approach for Reducing Nitrous Oxide Emission and Improving Nitrogen Fertilizer Use Efficiency of Sorghum”</span>
-          </div>
-          <div class="grant-item">
-            <span class="grant-label">Submitted to:</span>
-            <span class="grant-value">Southern Region SARE 2022 Graduate Student Grant Proposal</span>
-          </div>
-          <div class="grant-item">
-            <span class="grant-label">Amount Requested:</span>
-            <span class="grant-value">$16,226</span>
-          </div>
-          <div class="grant-item">
-            <span class="grant-label">Status:</span>
-            <span class="status-not-funded">Not funded</span>
-          </div>
         </div>
       </section>
 
@@ -554,42 +507,23 @@
 
   <script src="videos.js"></script>
   <script>
-    // Function to toggle footer text visibility
+    // This script makes the footer link visible only when scrolled to the bottom.
     function toggleFooterVisibility() {
       const footerLink = document.getElementById('footer-link');
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
 
-      // Show footer text only when exactly at the bottom
-      if (scrollPosition >= documentHeight) {
+      // Add a small buffer (e.g., 5 pixels) to ensure it triggers
+      if (scrollPosition >= documentHeight - 5) {
         footerLink.classList.add('visible');
       } else {
         footerLink.classList.remove('visible');
       }
     }
 
-    // Scroll-based reveal animation
-    function revealSections() {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        // Trigger animation when section is 80% into view
-        if (sectionTop < windowHeight * 0.8) {
-          section.classList.add('visible');
-        }
-      });
-    }
-
-    // Event listeners for scroll and initial check
-    window.addEventListener('scroll', () => {
-      toggleFooterVisibility();
-      revealSections();
-    });
-    window.addEventListener('load', () => {
-      toggleFooterVisibility();
-      revealSections();
-    });
+    // Event listeners for scroll and initial check on load
+    window.addEventListener('scroll', toggleFooterVisibility);
+    window.addEventListener('load', toggleFooterVisibility);
   </script>
 </body>
 </html>
