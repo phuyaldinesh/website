@@ -432,3 +432,31 @@ h3 {
     }
 }
 
+
+/* ===== Research interests lead summary ===== */
+.lead-summary {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--primary);
+    background: rgba(52, 152, 219, 0.06);
+    border-left: 4px solid var(--secondary);
+    border-radius: 0 6px 6px 0;
+    padding: 1.1rem 1.3rem;
+    margin-bottom: 1.6rem;
+}
+
+.lead-summary:last-child {
+    margin-bottom: 0;
+}
+
+.lead-summary strong {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .lead-summary {
+        font-size: 1rem;
+        padding: 0.9rem 1rem;
+    }
+}
