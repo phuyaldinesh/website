@@ -1,0 +1,370 @@
+/* ============================================================
+   scroll-nav.css
+   Floating "reading dial" + section quick-jump menu
+   Plus a few safe mobile fixes.
+   Everything here is additive: it does not restyle your
+   existing sections, tables, navigation or footer.
+   ============================================================ */
+
+:root {
+  --dp-accent: #ff5733;
+  --dp-accent-2: #3498db;
+  --dp-ink: #23303c;
+  --dp-surface: rgba(255, 255, 255, 0.92);
+  /* Set by JavaScript so the widget always sits above a fixed footer */
+  --dp-bottom-gap: 1.25rem;
+}
+
+/* ---------- Wrapper -------------------------------------- */
+.dp-quicknav {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: calc(var(--dp-bottom-gap) + env(safe-area-inset-bottom));
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+  pointer-events: none; /* children re-enable it */
+}
+
+/* Hidden until the reader scrolls down a little */
+.dp-quicknav__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px) scale(0.9);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
+  pointer-events: none;
+}
+
+.dp-quicknav.is-visible .dp-quicknav__buttons {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* ---------- Shared button look ---------------------------- */
+.dp-quicknav button {
+  /* reset, because theme.css styles every <button> on the site */
+  background: var(--dp-surface);
+  color: var(--dp-ink);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+  animation: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+              background 0.25s ease, color 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dp-quicknav button:focus-visible {
+  outline: 3px solid var(--dp-accent-2);
+  outline-offset: 3px;
+}
+
+/* ---------- Small "jump to section" button ---------------- */
+.dp-quicknav__toggle {
+  width: 42px;
+  height: 42px;
+}
+
+.dp-quicknav__toggle svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.dp-quicknav[data-open="true"] .dp-quicknav__toggle {
+  background: var(--dp-accent);
+  color: #fff;
+  border-color: transparent;
+}
+
+.dp-quicknav[data-open="true"] .dp-quicknav__toggle svg {
+  transform: rotate(90deg);
+}
+
+/* ---------- Main progress dial / back-to-top -------------- */
+.dp-quicknav__top {
+  width: 56px;
+  height: 56px;
+  position: relative;
+}
+
+.dp-quicknav__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg); /* start the ring at 12 o'clock */
+  pointer-events: none;
+}
+
+.dp-quicknav__ring-track {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.10);
+  stroke-width: 3;
+}
+
+.dp-quicknav__ring-fill {
+  fill: none;
+  stroke: url(#dp-ring-gradient);
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.15s linear;
+}
+
+.dp-quicknav__arrow {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.25s ease;
+}
+
+.dp-quicknav__percent {
+  position: absolute;
+  bottom: -0.15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: var(--dp-accent);
+  color: #fff;
+  padding: 0.05rem 0.35rem;
+  border-radius: 999px;
+  line-height: 1.5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ---------- Section panel --------------------------------- */
+.dp-quicknav__panel {
+  pointer-events: auto;
+  width: min(16rem, calc(100vw - 2.5rem));
+  max-height: min(58vh, 26rem);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  background: rgba(255, 255, 255, 0.96);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.22);
+  padding: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) scale(0.97);
+  transform-origin: bottom right;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+
+.dp-quicknav[data-open="true"] .dp-quicknav__panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.dp-quicknav__title {
+  margin: 0.25rem 0.6rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7b8794;
+  font-family: system-ui, -apple-system, sans-serif;
+  animation: none;      /* theme.css animates headings; this is a <p>, but be safe */
+  text-shadow: none;
+}
+
+.dp-quicknav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dp-quicknav__list li {
+  margin: 0;
+  padding: 0;
+}
+
+.dp-quicknav__link {
+  display: block;
+  padding: 0.5rem 0.65rem;
+  border-radius: 9px;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  font-weight: 600;
+  color: var(--dp-ink);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.dp-quicknav__link:hover {
+  background: rgba(52, 152, 219, 0.12);
+  color: var(--dp-accent);
+  text-decoration: none;
+}
+
+.dp-quicknav__link.is-current {
+  background: rgba(255, 87, 51, 0.12);
+  border-left-color: var(--dp-accent);
+  color: var(--dp-accent);
+}
+
+/* Scrollbar inside the panel */
+.dp-quicknav__panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dp-quicknav__panel::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 3px;
+}
+
+/* ---------- Hover only where hovering is real ------------- */
+@media (hover: hover) {
+  .dp-quicknav__top:hover,
+  .dp-quicknav__toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.26);
+  }
+
+  .dp-quicknav__top:hover .dp-quicknav__arrow {
+    transform: translateY(-2px);
+  }
+}
+
+.dp-quicknav button:active {
+  transform: scale(0.94);
+}
+
+/* ---------- Phones ---------------------------------------- */
+@media (max-width: 600px) {
+  .dp-quicknav {
+    right: max(0.85rem, env(safe-area-inset-right));
+    gap: 0.5rem;
+  }
+
+  .dp-quicknav__top {
+    width: 50px;
+    height: 50px;
+  }
+
+  .dp-quicknav__toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .dp-quicknav__panel {
+    width: min(15rem, calc(100vw - 2rem));
+    max-height: 52vh;
+  }
+}
+
+/* ---------- Respect reduced-motion settings --------------- */
+@media (prefers-reduced-motion: reduce) {
+  .dp-quicknav *,
+  .dp-quicknav {
+    transition-duration: 0.01ms !important;
+    animation: none !important;
+  }
+}
+
+/* ---------- Print: never show the widget ------------------ */
+@media print {
+  .dp-quicknav {
+    display: none !important;
+  }
+}
+
+/* ============================================================
+   SAFE MOBILE FIXES
+   These only stop things from overflowing or hiding.
+   They do not change your colours, fonts or layout.
+   ============================================================ */
+
+/* 1. Long DOI links and URLs no longer push the page sideways */
+.citation,
+.publication-item,
+.extension-item,
+.journal-item,
+.preparation-item,
+.doi-link,
+.extension-link {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* 2. Clicking a menu link no longer hides the heading behind
+      the fixed top navigation bar */
+html {
+  scroll-behavior: smooth;
+}
+
+.section,
+[id] {
+  scroll-margin-top: 6rem;
+}
+
+@media (max-width: 600px) {
+  .section,
+  [id] {
+    scroll-margin-top: 4.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* 3. Stop iOS from silently enlarging text in landscape */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* 4. On touch screens, the card "lift" effect used to stick
+      after a tap. Cards now stay put on touch, unchanged on
+      desktop. */
+@media (hover: none) {
+  .section:hover,
+  .news-card:hover,
+  .conference-item:hover {
+    transform: none;
+  }
+}
+
+/* 5. Nothing wider than the screen: images and embeds shrink */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 6. Give the last section breathing room so the floating
+      button never covers the final line of text */
+.content-wrapper {
+  padding-bottom: 4.5rem;
+}
